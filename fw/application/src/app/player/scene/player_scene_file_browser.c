@@ -10,6 +10,8 @@
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 
+#include "i18n/language.h"
+
 #define ICON_FOLDER 0xe1d6
 #define ICON_FILE 0xe1ed
 #define ICON_BACK 0xe069
@@ -52,7 +54,7 @@ static void player_scene_file_browser_reload_folders(app_player_t *app) {
 
     p_vfs_driver = vfs_get_driver(VFS_DRIVE_EXT);
 
-    mui_list_view_add_item(app->p_list_view, ICON_HOME, ">>主菜单<<", (void *)-1);
+    mui_list_view_add_item(app->p_list_view, ICON_HOME, getLangString(_L_APP_PLAYER_MAIN_MEMU), (void *)-1);
 
     int32_t res = p_vfs_driver->open_dir("/player", &dir);
     uint32_t file_cnt = 0;
@@ -70,11 +72,11 @@ static void player_scene_file_browser_reload_folders(app_player_t *app) {
         }
         p_vfs_driver->close_dir(&dir);
     } else {
-        mui_list_view_add_item(app->p_list_view, ICON_ERROR, "打开文件夹失败", (void *)-1);
+        mui_list_view_add_item(app->p_list_view, ICON_ERROR, getLangString(_L_APP_PLAYER_FOLDER_FAILED), (void *)-1);
     }
 
     if (file_cnt == 0) {
-        mui_list_view_add_item(app->p_list_view, ICON_ERROR, "<无动画文件>", (void *)-1);
+        mui_list_view_add_item(app->p_list_view, ICON_ERROR, getLangString(_L_APP_PLAYER_NO_FILE), (void *)-1);
     }
 
     //mui_list_view_sort(app->p_list_view, player_scene_file_browser_list_item_cmp);

@@ -122,4 +122,7 @@ const char * lang_zh_TW[_L_COUNT] = {
     [_L_APP_AMIIDB_FAV_FAILED] = "收藏失敗",
     [_L_APP_AMIIDB_SLOT_SAVE_SUCCESS] = "保存成功",
     [_L_APP_AMIIDB_SLOT_SAVE_FAILED] = "保存失敗",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>主選單<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "打開資料夾失敗",
+    [_L_APP_PLAYER_NO_FILE] = "<無動畫文件>",
 };

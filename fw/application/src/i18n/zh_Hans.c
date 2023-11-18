@@ -121,5 +121,8 @@ const char * lang_zh_Hans[_L_COUNT] = {
     [_L_APP_AMIIDB_FAV_SUCCESS] = "收藏成功",
     [_L_APP_AMIIDB_FAV_FAILED] = "收藏失败",
     [_L_APP_AMIIDB_SLOT_SAVE_SUCCESS] = "保存成功",
-    [_L_APP_AMIIDB_SLOT_SAVE_FAILED] = "保存失敗",
+    [_L_APP_AMIIDB_SLOT_SAVE_FAILED] = "保存失败",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>主菜单<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "打开文件夹失败",
+    [_L_APP_PLAYER_NO_FILE] = "<无动画文件>",
 };
