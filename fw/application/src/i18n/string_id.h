@@ -126,6 +126,7 @@ typedef enum {
     _L_APP_PLAYER_MAIN_MEMU,
     _L_APP_PLAYER_FOLDER_FAILED,
     _L_APP_PLAYER_NO_FILE,
+    _L_APP_CHAMELEON,
     _L_COUNT,
 } L_StringID;
 #endif

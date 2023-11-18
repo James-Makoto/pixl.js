@@ -81,7 +81,7 @@ const char * lang_en_US[_L_COUNT] = {
     [_L_MODE] = "Mode",
     [_L_AUTO_RANDOM] = "Auto Random.",
     [_L_COMPATIBLE_MODE] = "Compati. Mode",
-    [_L_TAG_DETAILS] = "Tag Details",
+    [_L_TAG_DETAILS] = "[Tag Details]",
     [_L_MAIN_MENU] = "[Main Menu]",
     [_L_MODE_RANDOM] = "Rand. (Manual)",
     [_L_MODE_CYCLE] = "Sequential",
@@ -125,4 +125,5 @@ const char * lang_en_US[_L_COUNT] = {
     [_L_APP_PLAYER_MAIN_MEMU] = ">>Main Menu<<",
     [_L_APP_PLAYER_FOLDER_FAILED] = "Failed to open folder",
     [_L_APP_PLAYER_NO_FILE] = "<No Video Content>",
+    [_L_APP_CHAMELEON] = "Card Emulator",
 };

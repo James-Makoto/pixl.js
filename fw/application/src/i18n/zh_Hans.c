@@ -81,7 +81,7 @@ const char * lang_zh_Hans[_L_COUNT] = {
     [_L_MODE] = "模式",
     [_L_AUTO_RANDOM] = "自动随机",
     [_L_COMPATIBLE_MODE] = "兼容模式",
-    [_L_TAG_DETAILS] = "标签详情",
+    [_L_TAG_DETAILS] = "[标签详情]",
     [_L_MAIN_MENU] = "[主菜单]",
     [_L_MODE_RANDOM] = "随机(手动)",
     [_L_MODE_CYCLE] = "按序",
@@ -125,4 +125,5 @@ const char * lang_zh_Hans[_L_COUNT] = {
     [_L_APP_PLAYER_MAIN_MEMU] = ">>主菜单<<",
     [_L_APP_PLAYER_FOLDER_FAILED] = "打开文件夹失败",
     [_L_APP_PLAYER_NO_FILE] = "<无动画文件>",
+    [_L_APP_CHAMELEON] = "卡模拟器",
 };

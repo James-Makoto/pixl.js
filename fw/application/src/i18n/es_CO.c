@@ -81,7 +81,7 @@ const char * lang_es_CO[_L_COUNT] = {
     [_L_MODE] = "Modo",
     [_L_AUTO_RANDOM] = "Aleat. Autom.",
     [_L_COMPATIBLE_MODE] = "Compatibil.",
-    [_L_TAG_DETAILS] = "Detalles Amiibo",
+    [_L_TAG_DETAILS] = "[Detalles Amiibo]",
     [_L_MAIN_MENU] = "[Menú Principal]",
     [_L_MODE_RANDOM] = "Aleat. Man.",
     [_L_MODE_CYCLE] = "Secuencial",
@@ -125,4 +125,5 @@ const char * lang_es_CO[_L_COUNT] = {
     [_L_APP_PLAYER_MAIN_MEMU] = ">>Menú Principal<<",
     [_L_APP_PLAYER_FOLDER_FAILED] = "Fallo al abrir carpeta",
     [_L_APP_PLAYER_NO_FILE] = "<Sin contenido de vídeo>",
+    [_L_APP_CHAMELEON] = "Card Emulator",
 };
