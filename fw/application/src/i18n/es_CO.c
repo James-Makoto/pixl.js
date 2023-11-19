@@ -122,5 +122,8 @@ const char * lang_es_CO[_L_COUNT] = {
     [_L_APP_AMIIDB_FAV_FAILED] = "¡Favorito Faillido!",
     [_L_APP_AMIIDB_SLOT_SAVE_SUCCESS] = "Asignación Correcta",
     [_L_APP_AMIIDB_SLOT_SAVE_FAILED] = "¡Asignación Fallida!",
-    [_L_APP_CHAMELEON] = "",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>Menú Principal<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "Fallo al abrir carpeta",
+    [_L_APP_PLAYER_NO_FILE] = "<Sin contenido de vídeo>",
+    [_L_APP_CHAMELEON] = "Card Emulator",
 };
