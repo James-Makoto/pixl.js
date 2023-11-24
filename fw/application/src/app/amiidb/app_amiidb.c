@@ -12,6 +12,7 @@
 #include "settings.h"
 
 #include "amiibo_helper.h"
+#include "ntag_emu.h"
 
 static void app_amiidb_on_run(mini_app_inst_t *p_app_inst);
 static void app_amiidb_on_kill(mini_app_inst_t *p_app_inst);
@@ -35,6 +36,7 @@ void app_amiidb_on_run(mini_app_inst_t *p_app_inst) {
 
     app_amiidb_t *p_app_handle = mui_mem_malloc(sizeof(app_amiidb_t));
     memset(p_app_handle, 0, sizeof(app_amiidb_t));
+    
 
     p_app_inst->p_handle = p_app_handle;
     p_app_handle->p_view_dispatcher = mui_view_dispatcher_create();
@@ -48,10 +50,10 @@ void app_amiidb_on_run(mini_app_inst_t *p_app_inst) {
     p_app_handle->p_amiibo_view->user_data = p_app_handle;
     p_app_handle->p_toast_view = mui_toast_view_create();
     mui_toast_view_set_user_data(p_app_handle->p_toast_view, p_app_handle);
-
+    
     string_init(p_app_handle->cur_fav_dir);
-
     string_init(p_app_handle->search_str);
+    p_app_handle->in_fav_folders = true;
 
     amiidb_fav_array_init(p_app_handle->fav_array);
 
@@ -79,6 +81,9 @@ void app_amiidb_on_run(mini_app_inst_t *p_app_inst) {
     mui_view_dispatcher_switch_to_view(p_app_handle->p_view_dispatcher_toast, AMIIDB_VIEW_ID_TOAST);
 
     app_amiidb_try_mount_drive(p_app_handle);
+
+    extern const ntag_t default_ntag215;
+    APP_ERROR_CHECK(ntag_emu_init(&default_ntag215));
 
     if (p_app_inst->p_retain_data) {
         app_amiidb_cache_data_t *p_cache_data = (app_amiidb_cache_data_t *)p_app_inst->p_retain_data;
