@@ -12,6 +12,7 @@ typedef enum {
     MINI_APP_ID_PLAYER,
     MINI_APP_ID_BLE,
     MINI_APP_ID_SETTINGS,
+    MINI_APP_ID_CHAMELEON,
 
 } mini_app_id_t;
 
