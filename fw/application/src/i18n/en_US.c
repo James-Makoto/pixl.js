@@ -128,9 +128,6 @@ const char * lang_en_US[_L_COUNT] = {
     [_L_APP_AMIIDB_FAV_FAILED] = "Favorite Failed!",
     [_L_APP_AMIIDB_SLOT_SAVE_SUCCESS] = "Save Success",
     [_L_APP_AMIIDB_SLOT_SAVE_FAILED] = "Save Failed!",
-    [_L_APP_PLAYER_MAIN_MEMU] = ">>Main Menu<<",
-    [_L_APP_PLAYER_FOLDER_FAILED] = "Failed to open folder",
-    [_L_APP_PLAYER_NO_FILE] = "<No Video Content>",
     [_L_APP_CHAMELEON] = "Card Emulator",
     [_L_APP_CHAMELEON_TAG_MF1_WRITE_NORMAL] = "Normal",
     [_L_APP_CHAMELEON_TAG_MF1_WRITE_DENIED] = "Deny",
@@ -167,4 +164,7 @@ const char * lang_en_US[_L_COUNT] = {
     [_L_APP_CHAMELEON_CARD_WRITE_MODE] = "Write Mode",
     [_L_APP_CHAMELEON_CARD_ADV_ID_EDIT_INVALID_INPUT] = "Invalid Input!",
     [_L_APP_CHAMELEON_CARD_TYPE_FACTORY_DATA_CONFRIM] = "Card type changed. \nFactory card data?",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>Main Menu<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "Failed to open folder",
+    [_L_APP_PLAYER_NO_FILE] = "<No Video Content>",
 };
