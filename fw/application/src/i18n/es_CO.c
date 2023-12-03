@@ -165,4 +165,7 @@ const char * lang_es_CO[_L_COUNT] = {
     [_L_APP_CHAMELEON_CARD_WRITE_MODE] = "Modo Escritura",
     [_L_APP_CHAMELEON_CARD_ADV_ID_EDIT_INVALID_INPUT] = "¡Entrada Inválida!",
     [_L_APP_CHAMELEON_CARD_TYPE_FACTORY_DATA_CONFRIM] = "Tipo de tarjeta modificado\nRestablecer datos de la tarjeta?",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>Menú Principal<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "Fallo al abrir carpeta",
+    [_L_APP_PLAYER_NO_FILE] = "<Sin contenido de vídeo>",
 };
