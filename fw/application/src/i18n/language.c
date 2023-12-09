@@ -8,12 +8,14 @@ typedef struct {
 
 LanguageData languageData[LANGUAGE_COUNT] = {
     [LANGUAGE_ZH_HANS] = { .strings = lang_zh_Hans },
-    [LANGUAGE_EN_US] = { .strings = lang_en_US },
     [LANGUAGE_ZH_TW] = { .strings = lang_zh_TW },
-    [LANGUAGE_ES_CO] = { .strings = lang_es_CO },
+    [LANGUAGE_EN_US] = { .strings = lang_en_US },
+    [LANGUAGE_ES_ES] = { .strings = lang_es_ES },
+    [LANGUAGE_HU_HU] = { .strings = lang_hu_HU },
+    [LANGUAGE_JA_JP] = { .strings = lang_ja_JP },
 };
 
-// 当前语言设置
+// 当前语言设置 (Current language setting)
 Language currentLanguage = LANGUAGE_ZH_HANS;
 
 
@@ -29,12 +31,16 @@ void setLanguage(Language lang) {
 const char* getLangDesc(Language lang){
     if(lang == LANGUAGE_ZH_HANS){
         return "简体中文";
-    }else if(lang == LANGUAGE_EN_US){
-        return "English";
     }else if(lang == LANGUAGE_ZH_TW){
         return "繁體中文(臺灣)";
-    }else if(lang == LANGUAGE_ES_CO){
-        return  "Español(Colombia)";
+    }else if(lang == LANGUAGE_EN_US){
+        return "English";
+    }else if(lang == LANGUAGE_ES_ES){
+        return "Español";
+    }else if(lang == LANGUAGE_HU_HU){
+        return "Magyar";
+    }else if(lang == LANGUAGE_JA_JP){
+        return "日本語";
     }
 }
 
