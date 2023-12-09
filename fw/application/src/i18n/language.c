@@ -30,14 +30,14 @@ void setLanguage(Language lang) {
 const char* getLangDesc(Language lang){
     if(lang == LANGUAGE_ZH_HANS){
         return "简体中文";
-    }else if(lang == LANGUAGE_EN_US){
-        return "English";
     }else if(lang == LANGUAGE_ZH_TW){
         return "繁體中文(臺灣)";
+    }else if(lang == LANGUAGE_EN_US){
+        return "English";
     }else if(lang == LANGUAGE_ES_ES){
-        return  "Español";
+        return "Español";
     }else if(lang == LANGUAGE_HU_HU){
-        return  "Magyar";
+        return "Magyar";
     }
 }
 
