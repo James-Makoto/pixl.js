@@ -165,4 +165,7 @@ const char * lang_zh_TW[_L_COUNT] = {
     [_L_APP_CHAMELEON_CARD_WRITE_MODE] = "寫入模式",
     [_L_APP_CHAMELEON_CARD_ADV_ID_EDIT_INVALID_INPUT] = "無效的輸入!",
     [_L_APP_CHAMELEON_CARD_TYPE_FACTORY_DATA_CONFRIM] = "卡類型已修改\n重置卡數據?",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>主選單<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "打開資料夾失敗",
+    [_L_APP_PLAYER_NO_FILE] = "<無動畫文件>",
 };
