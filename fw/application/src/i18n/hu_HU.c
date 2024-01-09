@@ -75,7 +75,7 @@ const char * lang_hu_HU[_L_COUNT] = {
     [_L_CREATING_TAG_BATCH] = "Címke létrehozása",
     [_L_CREATING_TAG_FAILED] = "Címke létrehozása %s sikertelen!",
     [_L_RENAME] = "Átnevezés",
-    [_L_OPEN_FOLDER_FAILED] = "Mappa megnyitása sikertelen ",
+    [_L_OPEN_FOLDER_FAILED] = "Mappa megnyitása sikertelen",
     [_L_RENAME_FAILED] = "Átnevezés Sikertelen\nHibakód",
     [_L_MAIN_RETURN] = "[VISSZA]",
     [_L_RANDOM_MODE_MANUAL] = "Randomizálás (Kézi)",
@@ -165,4 +165,7 @@ const char * lang_hu_HU[_L_COUNT] = {
     [_L_APP_CHAMELEON_CARD_WRITE_MODE] = "Írási Mód",
     [_L_APP_CHAMELEON_CARD_ADV_ID_EDIT_INVALID_INPUT] = "Érvénytelen bemenet!",
     [_L_APP_CHAMELEON_CARD_TYPE_FACTORY_DATA_CONFRIM] = "A kártya típusa megváltozott.\nGyári kártyaadatok?",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>Főmenü<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "Mappa megnyitása sikertelen",
+    [_L_APP_PLAYER_NO_FILE] = "<Nincs videó tartalom>",
 };
