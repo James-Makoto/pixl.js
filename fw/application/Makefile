@@ -9,7 +9,7 @@ U8G2_ROOT := ../components/u8g2/csrc
 CHAMELEON_ROOT :=$(COMP_DIR)/chameleon-ultra/firmware
 
 APP_VERSION ?= 1
-RELEASE ?= 0
+RELEASE ?= 1
 BOARD ?= OLED
 
 $(OUTPUT_DIRECTORY)/pixljs.out: \
@@ -301,6 +301,7 @@ SRC_FILES += \
   $(PROJ_DIR)/i18n/ja_JP.c \
   $(PROJ_DIR)/i18n/nl_NL.c \
   $(PROJ_DIR)/i18n/pt_BR.c \
+  $(PROJ_DIR)/i18n/pt_PT.c \
   $(PROJ_DIR)/i18n/language.c \
   $(PROJ_DIR)/hal/hal_nfc_t2t.c \
   $(PROJ_DIR)/amiidb/db_amiibo.c \
@@ -607,6 +608,7 @@ CFLAGS += -DBOARD_$(BOARD)
 ifneq ($(RELEASE), 1)
 CFLAGS += -DDEBUG
 CFLAGS += -DEBUG_NRF
+CFLAGS += -DU8G2_USE_LARGE_GB2312_FONT
 else
 CFLAGS += -DNDEBUG
 CFLAGS += -DU8G2_USE_LARGE_GB2312_FONT
