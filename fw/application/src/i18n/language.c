@@ -43,10 +43,10 @@ const char *getLangDesc(Language lang) {
         return "Dutch (Nederlands)";
     } else if (lang == LANGUAGE_PT_BR) {
         return "Português(Brazil)";
-    } else if (lang == LANGUAGE_JA_JP) {
-        return "日本語";
     } else if (lang == LANGUAGE_PT_PT) {
         return "Português(Portugal)";
+    } else if (lang == LANGUAGE_JA_JP) {
+        return "日本語";
     }
 }
 
