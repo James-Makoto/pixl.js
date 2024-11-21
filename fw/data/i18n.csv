@@ -183,6 +183,6 @@ _L_APP_GAME_TINY_ARKANOID,Arkanoid,打砖块,打磚塊,,,,,,,,,,
 _L_APP_GAME_TINY_INVADERS,Invaders,入侵者,入侵者,,,,,,,,,,
 _L_APP_GAME_TINY_LANDER,Lander,星球着陆,星球著陸,,,,,,,,,,
 _L_APP_GAME_TINY_TRIS,Tris,俄罗斯方块,俄羅斯方塊,,,,,,,,,,
-_L_APP_PLAYER_MAIN_MEMU,>>Main Menu<<,>>主菜单<<,>>主選單<<,>>Menú Principal<<,>>Főmenü<<,>>Hauptmenü<<,>>Menu Principal<<,>>Hoofdmenu<<,>>Menu Principal<<,>>メインメニュー<<,>>Menu principale<<,>>Главное меню<<
-_L_APP_PLAYER_FOLDER_FAILED,Failed to open folder,打开文件夹失败,打開資料夾失敗,Fallo al abrir carpeta,Mappa megnyitása sikertelen,Ordner konnte nicht geöffnet werden,Échec de l'ouverture du dossier,Kan map niet openen,Falha ao abrir a pasta,フォルダを開けませんでした,Impossibile aprire la cartella,Невозможно открыть папку
-_L_APP_PLAYER_NO_FILE,<No Video Content>,<无动画文件>,<無動畫文件>,<Sin contenido de vídeo>,<Nincs videó tartalom>,<Kein Videoinhalt>,<Pas de contenu vidéo>,<Geen video inhoud>,<Sem conteúdo de vídeo>,<動画ファイルがありません>,<Nessun contenuto video>,<Нет видеоконтента>
+_L_APP_PLAYER_MAIN_MEMU,>>Main Menu<<,>>主菜单<<,>>主選單<<,>>Menú Principal<<,>>Főmenü<<,>>Hauptmenü<<,>>Menu Principal<<,>>Hoofdmenu<<,>>Menu Principal<<,>>メインメニュー<<,>>Menu principale<<,>>Menu Principal<<,>>Главное меню<<
+_L_APP_PLAYER_FOLDER_FAILED,Failed to open folder,打开文件夹失败,打開資料夾失敗,Fallo al abrir carpeta,Mappa megnyitása sikertelen,Ordner konnte nicht geöffnet werden,Échec de l'ouverture du dossier,Kan map niet openen,Falha ao abrir a pasta,フォルダを開けませんでした,Impossibile aprire la cartella,Sem Conteúdo de Vídeo,Невозможно открыть папку
+_L_APP_PLAYER_NO_FILE,<No Video Content>,<无动画文件>,<無動畫文件>,<Sin contenido de vídeo>,<Nincs videó tartalom>,<Kein Videoinhalt>,<Pas de contenu vidéo>,<Geen video inhoud>,<Sem conteúdo de vídeo>,<動画ファイルがありません>,Falha ao abrir a pasta,<Nessun contenuto video>,<Нет видеоконтента>

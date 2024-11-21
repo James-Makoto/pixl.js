@@ -186,5 +186,5 @@ const char * const lang_pt_PT[_L_COUNT] = {
     [_L_APP_GAME_TINY_TRIS] = "",
     [_L_APP_PLAYER_MAIN_MEMU] = ">>Menu principale<<",
     [_L_APP_PLAYER_FOLDER_FAILED] = "Impossibile aprire la cartella",
-    [_L_APP_PLAYER_NO_FILE] = "<Nessun contenuto video>",
+    [_L_APP_PLAYER_NO_FILE] = "Falha ao abrir a pasta",
 };

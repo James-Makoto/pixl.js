@@ -184,7 +184,7 @@ const char * const lang_it_IT[_L_COUNT] = {
     [_L_APP_GAME_TINY_INVADERS] = "",
     [_L_APP_GAME_TINY_LANDER] = "",
     [_L_APP_GAME_TINY_TRIS] = "",
-    [_L_APP_PLAYER_MAIN_MEMU] = ">>Главное меню<<",
-    [_L_APP_PLAYER_FOLDER_FAILED] = "Невозможно открыть папку",
-    [_L_APP_PLAYER_NO_FILE] = "<Нет видеоконтента>",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>Menu Principal<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "Sem Conteúdo de Vídeo",
+    [_L_APP_PLAYER_NO_FILE] = "<Nessun contenuto video>",
 };
