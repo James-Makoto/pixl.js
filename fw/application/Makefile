@@ -175,6 +175,7 @@ SRC_FILES += \
   $(PROJ_DIR)/amiibo_helper.c \
   $(PROJ_DIR)/mui_qrcode_helper.c \
   $(PROJ_DIR)/app_error_handler.c \
+  $(PROJ_DIR)/interrupt_handler.c \
   $(PROJ_DIR)/libc_nano_stubs.c \
   $(PROJ_DIR)/hal/hal_spi_bus.c \
   $(PROJ_DIR)/hal/hal_spi_flash.c \
@@ -231,6 +232,16 @@ SRC_FILES += \
   $(PROJ_DIR)/app/player/scene/player_scene.c \
   $(PROJ_DIR)/app/player/scene/player_scene_file_browser.c \
   $(PROJ_DIR)/app/player/scene/player_scene_play.c \
+  $(PROJ_DIR)/app/game/app_game.c \
+  $(PROJ_DIR)/app/game/view/game_view.c \
+  $(PROJ_DIR)/app/game/scene/game_scene.c \
+  $(PROJ_DIR)/app/game/scene/game_scene_game_list.c \
+  $(PROJ_DIR)/app/game/scene/game_scene_play.c \
+  $(PROJ_DIR)/app/game/port/common/driver.c \
+  $(PROJ_DIR)/app/game/port/tiny_lander/tiny_lander.c \
+  $(PROJ_DIR)/app/game/port/tiny_invaders/tiny_invaders.c \
+  $(PROJ_DIR)/app/game/port/tiny_arkanoid/tiny_arkanoid.c \
+  $(PROJ_DIR)/app/game/port/tiny_tris/tiny_tris.c \
   $(PROJ_DIR)/app/amiibolink/app_amiibolink.c \
   $(PROJ_DIR)/app/amiibolink/view/amiibolink_view.c \
   $(PROJ_DIR)/app/amiibolink/scene/amiibolink_scene.c \
@@ -293,6 +304,7 @@ SRC_FILES += \
   $(PROJ_DIR)/app/settings/scene/settings_scene_oled_contrast.c \
   $(PROJ_DIR)/app/settings/scene/settings_scene_language.c \
   $(PROJ_DIR)/app/settings/scene/settings_scene_storage.c \
+  $(PROJ_DIR)/app/settings/scene/settings_scene_about.c \
   $(PROJ_DIR)/i18n/en_US.c \
   $(PROJ_DIR)/i18n/zh_Hans.c \
   $(PROJ_DIR)/i18n/zh_TW.c \
@@ -332,7 +344,7 @@ SRC_FILES += \
   $(CHAMELEON_ROOT)/application/src/rfid/nfctag/hf/crypto1_helper.c \
   $(CHAMELEON_ROOT)/application/src/rfid/nfctag/hf/nfc_14a.c \
   $(CHAMELEON_ROOT)/application/src/rfid/nfctag/hf/nfc_mf1.c \
-  $(CHAMELEON_ROOT)/application/src/rfid/nfctag/hf/nfc_ntag.c \
+  $(CHAMELEON_ROOT)/application/src/rfid/nfctag/hf/nfc_mf0_ntag.c \
   $(CHAMELEON_ROOT)/application/src/rfid/crc_utils.c \
   $(CHAMELEON_ROOT)/application/src/rfid/hex_utils.c \
   $(CHAMELEON_ROOT)/application/src/rfid/mf1_crapto1.c \
@@ -553,6 +565,13 @@ INC_FOLDERS += \
   $(PROJ_DIR)/app/player \
   $(PROJ_DIR)/app/player/view \
   $(PROJ_DIR)/app/player/scene \
+  $(PROJ_DIR)/app/game \
+  $(PROJ_DIR)/app/game/view \
+  $(PROJ_DIR)/app/game/scene \
+  $(PROJ_DIR)/app/game/port/tiny_lander \
+  $(PROJ_DIR)/app/game/port/tiny_invaders \
+  $(PROJ_DIR)/app/game/port/tiny_arkanoid \
+  $(PROJ_DIR)/app/game/port/tiny_tris \
   $(PROJ_DIR)/app/amiibolink \
   $(PROJ_DIR)/app/amiibolink/view \
   $(PROJ_DIR)/app/amiibolink/scene \
@@ -599,7 +618,7 @@ CFLAGS += $(OPT)
 CFLAGS += -DAPP_TIMER_V2
 CFLAGS += -DAPP_TIMER_V2_RTC1_ENABLED
 #CFLAGS += -DBOARD_PCA10040
-CFLAGS += -DCUSTOM_BOARD_INC=boards_defines
+CFLAGS += -DBOARD_CUSTOM
 #CFLAGS += -DCONFIG_GPIO_AS_PINRESET
 CFLAGS += -DFLOAT_ABI_HARD
 CFLAGS += -DNRF52
@@ -613,10 +632,10 @@ CFLAGS += -DBOARD_$(BOARD)
 ifneq ($(RELEASE), 1)
 CFLAGS += -DDEBUG
 CFLAGS += -DEBUG_NRF
-# CFLAGS += -DU8G2_USE_LARGE_GB2312_FONT
+#CFLAGS += -DU8G2_USE_LARGE_FONTS
 else
 CFLAGS += -DNDEBUG
-CFLAGS += -DU8G2_USE_LARGE_GB2312_FONT
+CFLAGS += -DU8G2_USE_LARGE_FONTS
 endif
 CFLAGS += -DMBEDTLS_CONFIG_FILE=\"nrf_crypto_mbedtls_config.h\"
 CFLAGS += -DM_USE_THREAD_BACKEND=0
@@ -638,7 +657,7 @@ ASMFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 ASMFLAGS += -DAPP_TIMER_V2
 ASMFLAGS += -DAPP_TIMER_V2_RTC1_ENABLED
 # ASMFLAGS += -DBOARD_PCA10040
-ASMFLAGS += -DCUSTOM_BOARD_INC=am_board
+ASMFLAGS += -DBOARD_CUSTOM
 # ASMFLAGS += -DCONFIG_GPIO_AS_PINRESET
 ASMFLAGS += -DFLOAT_ABI_HARD
 ASMFLAGS += -DNRF52
@@ -729,6 +748,7 @@ full: settingsgen
 gen:
 	python3 ../scripts/amiibo_db_gen.py
 	python3 ../scripts/i18n_gen.py
+	python3 ../scripts/font_data_gen.py
 	python3 ../scripts/resource_gen.py
 
 flash_ocd: default

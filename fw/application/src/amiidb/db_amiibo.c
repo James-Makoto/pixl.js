@@ -134,6 +134,10 @@ const db_amiibo_t amiibo_list[] = {
 {0x08080000, 0x04340402, "Frye", "曼曼"}, 
 {0x08090000, 0x04350402, "Big Man", "鬼福"}, 
 {0x08060100, 0x041c0402, "Smallfry", "小鲑鱼"}, 
+{0x08010000, 0x04360402, "Callie - Alterna", "小拟 - 幻界"}, 
+{0x08020000, 0x04370402, "Marie - Alterna", "小萤 - 幻界"}, 
+{0x08030000, 0x04380402, "Pearl - Side Order", "小姬 - 秩序篇"}, 
+{0x08040000, 0x04390402, "Marina - Side Order", "饭田 - 秩序篇"}, 
 {0x00240000, 0x038d0002, "Piranha Plant", "吞食花"}, 
 {0x00c00000, 0x037b0002, "King K. Rool", "库鲁鲁王"}, 
 {0x01810000, 0x037d0002, "Isabelle", "西施惠"}, 
@@ -850,5 +854,7 @@ const db_amiibo_t amiibo_list[] = {
 {0x22430000, 0x043d1b02, "Noah", "诺亚"}, 
 {0x22440000, 0x043e1b02, "Mio", "弥央"}, 
 {0x3f000000, 0x042e0002, "Sora", "索拉"}, 
+{0x00090003, 0x0432ff02, "Diddy Kong - Power Up Band", ""}, 
+{0x00080003, 0x0431ff02, "Donkey Kong - Power Up Band", ""}, 
 {0, 0, 0, 0}
 };

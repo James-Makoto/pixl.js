@@ -12,7 +12,7 @@ const db_game_t game_list[] = {
 {9, 0, "Captain Toad: Treasure Tracker", "蘑菇队长:宝藏追踪者", 1, 4}, 
 {10, 0, "Bayonetta 2", "猎天使魔女2", 1, 13}, 
 {11, 0, "Animal Crossing: New Horizons", "集合啦！动物森友会", 99, 525}, 
-{12, 0, "Splatoon 3", "斯普拉遁3", 40, 23}, 
+{12, 0, "Splatoon 3", "斯普拉遁3", 40, 27}, 
 {13, 0, "Fire Emblem Warriors: Three Hopes", "火焰纹章：风花雪月无双", 15, 13}, 
 {14, 0, "Fire Emblem Warriors", "火焰纹章：无双", 15, 13}, 
 {15, 0, "Fire Emblem Three Houses", "火焰纹章：风花雪月", 30, 13}, 
@@ -71,6 +71,7 @@ const db_game_t game_list[] = {
 {68, 0, "The Legend of Zelda: Twilight Princess HD", "塞尔达传说：黄昏公主HD", 15, 10}, 
 {69, 0, "Luigi's Mansion", "路易吉洋楼1", 5, 4}, 
 {70, 0, "Mario Sports Superstars", "马里奥运动：超级明星", 5, 90}, 
+{71, 0, "Super Nintendo World series", "超级任天堂世界", 5, 9}, 
 {255, 0, "Others", "未分类", 0, 4}, 
 {0, 0, 0, 0, 0}
 };
