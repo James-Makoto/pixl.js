@@ -188,4 +188,7 @@ const char * const lang_sv_SE[_L_COUNT] = {
     [_L_APP_GAME_TINY_INVADERS] = "",
     [_L_APP_GAME_TINY_LANDER] = "",
     [_L_APP_GAME_TINY_TRIS] = "",
+    [_L_APP_PLAYER_MAIN_MEMU] = "",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "",
+    [_L_APP_PLAYER_NO_FILE] = "",
 };
