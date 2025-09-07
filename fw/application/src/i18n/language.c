@@ -7,8 +7,8 @@ typedef struct {
 
 const LanguageData const languageData[LANGUAGE_COUNT] = {
     [LANGUAGE_ZH_HANS] = {.strings = lang_zh_Hans},
-    [LANGUAGE_EN_US] = {.strings = lang_en_US},
     [LANGUAGE_ZH_TW] = {.strings = lang_zh_TW},
+    [LANGUAGE_EN_US] = {.strings = lang_en_US},
     [LANGUAGE_ES_ES] = {.strings = lang_es_ES},
     [LANGUAGE_HU_HU] = {.strings = lang_hu_HU},
     [LANGUAGE_DE_DE] = {.strings = lang_de_DE},
@@ -43,10 +43,10 @@ const char *getLangDesc(Language lang) {
     switch (lang) {
         case LANGUAGE_ZH_HANS:
             return "简体中文";
-        case LANGUAGE_EN_US:
-            return "English";
         case LANGUAGE_ZH_TW:
             return "繁體中文(臺灣)";
+        case LANGUAGE_EN_US:
+            return "English";
         case LANGUAGE_ES_ES:
             return "Español";
         case LANGUAGE_HU_HU:
