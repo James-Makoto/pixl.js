@@ -10,6 +10,8 @@
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 
+#include "i18n/language.h"
+
 #define ICON_FOLDER 0xe1d6
 #define ICON_FILE 0xe1ed
 #define ICON_BACK 0xe069
