@@ -36,6 +36,7 @@ _L_APP_SET_RESET_DEFAULT_CONFIRM,Confirm Reset Settings?,确认重置默认设�
 _L_APP_SET_ABOUT,About Device,关于设备,關於設備,Acerca del dispositivo,,,,,,,,,Об устройстве,O Urządzeniu,Om enheten
 _L_APP_SET_ABOUT_OPEN_SOURCE_PROJECT,Open Source Project,开源项目,開源項目,Poyecto de código abierto,,,,,,,,,Проект с открытым кодом,Projekt Open Source,Projekt med öppen källkod
 _L_APP_SET_ABOUT_LGPL_LICENSE,GPL 2.0 License,GPL 2.0 授权,GPL 2.0 授權,Licencia GPL 2.0,,,,,,,,,Лицензия GPL 2.0,Licencja GPL 2.0,GPL 2.0-licens
+_L_APP_SET_APP_MGMT,App Management,应用管理,應用管理,,,,,,,,,,Ярлыки главного меню,,
 _L_15S,15 Seconds,15秒,15秒,15 segundos,15 sec.,15 Sekunden,15 sec.,15 sec.,15 seg.,15秒,15 segundos,15 secondi,15 секунд,15 Sekund,15 sekunder
 _L_30S,30 Seconds,30秒,30秒,30 segundos,30 sec.,30 Sekunden,30 sec.,30 sec.,30 seg.,30秒,30 segundos,30 secondi,30 секунд,30 Sekund,30 sekunder
 _L_45S,45 Seconds,45秒,45秒,45 segundos,45 sec.,45 Sekunden,45 sec.,45 sec.,45 seg.,45秒,45 segundos,45 secondi,45 секунд,45 Sekund,45 sekunder
@@ -107,7 +108,7 @@ _L_MODE_CYCLE,Sequential,按序,按序,Secuencial,Szekvenciális,Sequentiell,Sé
 _L_MODE_NTAG,Read/Write,读写,讀寫,Lect./Escr.,Olvasás/Írás,Lesen/Schreiben,Lecture/Écriture,Lezen/Schrijven,Leitura/gravação,リード/ライト,Leitura/Escrita,Lett./Scritt.,Чтение-запись,Odczyt/Zapis,Läs/Skriv
 _L_MODE_RANDOM_AUTO_GEN,Rand. (Auto),随机(自动),隨機(自動),Aleat. auto.,Random (Automat.),Zufällig (Auto.),Aléatoire (Automatique),Willekeurig (Automatisch),Randomização (Automática),ランダム化（自動）,Randomização Automática ,Auto. casuale,Автогенерация,Losowanie (Autom.),Slump (auto)
 _L_BLANK_TAG,Blank NFC tag,空标签,空標籤,Amiibo no asignado,Üres NFC Címke,Leerer NFC Tag,Étiquette NFC vierge,Lege NFC-tag,Tag NFC em Branco,ブランクNFCタグ,Tag NFC vazia,Amiibo non assegnato,Пустой тег,Pusty Tag NFC,Blank NFC-tagg
-_L_APP_AMIIDB,Amiibo Database,Amiibo数据库,Amiibo數據庫,Base datos amiibo,Amiibo Adatbázis,Amiibo Datenbank,Base de Données Amiibo,Amiibo-Database,Banco de Dados Amiibo,Amiiboデータベース,Base de dados Amiibo,Database Amiibo,База данных Amiibo,Baza Danych Amiibo,Amiibo-databas
+_L_APP_AMIIDB,Amiibo Database,Amiibo数据库,Amiibo數據庫,Base datos amiibo,Amiibo Adatbázis,Amiibo Datenbank,Base de Données Amiibo,Amiibo-Database,Banco de Dados Amiibo,Amiiboデータベース,Base de dados Amiibo,Database Amiibo,База Amiibo,Baza Danych Amiibo,Amiibo-databas
 _L_APP_AMMIDB_BROWSER,Browser...,查看...,查看...,Explorar...,Böngésző...,Navigieren...,Naviguer...,Browser...,Navegador...,ブラウザ...,Navegar...,Esplora...,Обозреватель...,Przeglądaj...,Browser...
 _L_APP_AMIIDB_SEARCH,Search...,搜索...,搜索...,Buscar...,Keresés...,Suche...,Recherche...,Zoeken...,Pesquisar...,検索...,Pesquisar...,Cerca...,Поиск...,Szukaj...,Sök...
 _L_APP_AMIIDB_MY_FAVORITES,My Favorites...,我的收藏...,我的收藏...,Mis Favoritos...,Kedvencek...,Meine Favoriten...,Mes Favoris...,Mijn Favorieten...,Meus Favoritos...,お気に入り...,Favoritos...,I miei preferiti...,Моё избранное...,Ulubione...,Mina favoriter...
@@ -142,6 +143,9 @@ _L_APP_AMIIDB_FAV_SUCCESS,Favorite Success,收藏成功,收藏成功,¡Adicionad
 _L_APP_AMIIDB_FAV_FAILED,Favorite Failed!,收藏失败,收藏失敗,¡Fallo al adicionar\na Favoritos!,Kedvenc Sikertelen!,Favorisieren fehlgeschlagen!,Échec du Favori!,Favoriet Mislukt!,Favorito Falhou!,お気に入りに追加できませんでした!,Favorito falhou!,Preferito non aggiunto!,Ошибка добавления,Błąd Dodawania do Ulubionych!,Favorit misslyckades!
 _L_APP_AMIIDB_SLOT_SAVE_SUCCESS,Save Success,保存成功,保存成功,Asignación correcta,Sikeresen Mentve,Speichern erfolgreich,Sauvegarder Succès,Opslaan Succes,Salvar Com Êxito,保存されました,Guardado com sucesso,Assegnazione corretta,Сохранено,Zapisano,Sparades
 _L_APP_AMIIDB_SLOT_SAVE_FAILED,Save Failed!,保存失败,保存失敗,¡Asignación fallida!,Mentés Sikertelen!,Speichern fehlgeschlagen!,Sauvegarde Échouée!,Opslaan Mislukt!,Falha ao Salvar!,保存に失敗しました!,Falha ao Guardar!,Assegnazione fallita!,Ошибка сохранения,Błąd Zapisywania!,Spara misslyckades!
+_L_APP_AMIIDB_SORT_FIELD,Sort Field,排序字段,排序欄位,Campo de ordenación,Rendezési mező,Sortierfeld,Champ de tri,Sorteerveld,Campo de Ordenação,並べ替えフィールド,Campo de Ordenação,Campo di ordinamento,Сортировка,Pole sortowania,Sorteringsfält
+_L_APP_AMIIDB_SORT_DEFAULT,Default,默认,預設,Por defecto,Alapértelmezett,Standard,Par défaut,Standaard,Padrão,デフォルト,Padrão,Predefinito,По умолчанию,Domyślne,Standard
+_L_APP_AMIIDB_SORT_NAME,Name,名字,名稱,Nombre,Név,Name,Nom,Naam,Nome,名前,Nome,Nome,По алфавиту,Nazwa,Namn
 _L_APP_CHAMELEON,Card Emulator,卡模拟器,卡模擬器,Emular Etiqueta RFID,Kártya Emulátor,Karten Emulator,Emulateur de Carte,Kaart Emulator,Emulador de Cartão,カードエミュレータ,Emular Tag RFID,Emula tag RFID,Эмулятор карт,Emulator Kart,Kort-emulator
 _L_APP_CHAMELEON_TAG_MF1_WRITE_NORMAL,Normal,正常,正常,Normal,Normál,Normal,Normal,Normaal,Normal,通常,Normal,Normale,Разрешена,Normalny,Normal
 _L_APP_CHAMELEON_TAG_MF1_WRITE_DENIED,Deny,拒绝,拒絕,Negar,Tagadni,Verweigern,Refuser,Weigeren,Negar,拒否,Cancelar,Nega,Запрещена,Odmów,Neka

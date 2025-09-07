@@ -277,9 +277,10 @@ SRC_FILES += \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_advanced_id_size.c \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_advanced_id_edit.c \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_slot.c \
+  $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_slot_select.c \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_data.c \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_type.c \
-  $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_slot_select.c \
+  $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_slot_num_select.c \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_write_mode_select.c \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_data_file_load.c \
   $(PROJ_DIR)/app/chameleon/scene/chameleon_scene_menu_card_data_file_save.c \
@@ -306,6 +307,7 @@ SRC_FILES += \
   $(PROJ_DIR)/app/settings/scene/settings_scene_language.c \
   $(PROJ_DIR)/app/settings/scene/settings_scene_storage.c \
   $(PROJ_DIR)/app/settings/scene/settings_scene_about.c \
+  $(PROJ_DIR)/app/settings/scene/settings_scene_app_management.c \
   $(PROJ_DIR)/i18n/en_US.c \
   $(PROJ_DIR)/i18n/zh_Hans.c \
   $(PROJ_DIR)/i18n/zh_TW.c \
