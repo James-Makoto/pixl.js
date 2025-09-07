@@ -192,4 +192,7 @@ const char * const lang_pt_BR[_L_COUNT] = {
     [_L_APP_GAME_TINY_INVADERS] = "",
     [_L_APP_GAME_TINY_LANDER] = "",
     [_L_APP_GAME_TINY_TRIS] = "",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>Menu Principal<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "Falha ao abrir a pasta",
+    [_L_APP_PLAYER_NO_FILE] = "<Sem conteúdo de vídeo>",
 };

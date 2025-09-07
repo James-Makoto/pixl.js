@@ -192,4 +192,7 @@ const char * const lang_ru_RU[_L_COUNT] = {
     [_L_APP_GAME_TINY_INVADERS] = "Космические захватчики",
     [_L_APP_GAME_TINY_LANDER] = "Посадка на Луну",
     [_L_APP_GAME_TINY_TRIS] = "Тетрис",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>Главное меню<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "Невозможно открыть папку",
+    [_L_APP_PLAYER_NO_FILE] = "<Нет видеоконтента>",
 };

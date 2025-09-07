@@ -192,4 +192,7 @@ const char * const lang_ja_JP[_L_COUNT] = {
     [_L_APP_GAME_TINY_INVADERS] = "",
     [_L_APP_GAME_TINY_LANDER] = "",
     [_L_APP_GAME_TINY_TRIS] = "",
+    [_L_APP_PLAYER_MAIN_MEMU] = ">>メインメニュー<<",
+    [_L_APP_PLAYER_FOLDER_FAILED] = "フォルダを開けませんでした",
+    [_L_APP_PLAYER_NO_FILE] = "<動画ファイルがありません>",
 };
