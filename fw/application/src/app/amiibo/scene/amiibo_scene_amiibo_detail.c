@@ -58,7 +58,7 @@ static int32_t ntag_read(vfs_driver_t *p_vfs_driver, const char *path, ntag_t *n
         return NRF_ERR_READ_ERROR;
     }
 
-    if (obj.size != 540 && obj.size != 532 && obj.size != 572 && obj.size != 2048) {
+    if (obj.size != 540 && obj.size != 532 && obj.size != 572) {
         return NRF_ERR_NOT_AMIIBO;
     }
 
@@ -79,11 +79,8 @@ static int32_t ntag_read(vfs_driver_t *p_vfs_driver, const char *path, ntag_t *n
         ntag->read_only = true;
     }
 
-    ntag_type_t tag_type = obj.size == 2048 ? NTAG_I2C_PLUS_2K : NTAG_215;
-    ntag->type = tag_type;
-
-    res = p_vfs_driver->read_file_data(path, ntag->data, _ntag_data_size(ntag));
-    if (res != 540 && res != 532 && res != 2048) {
+    res = p_vfs_driver->read_file_data(path, ntag->data, 540);
+    if (res != 540 && res != 532) {
         return NRF_ERR_READ_ERROR;
     }
     return NRF_SUCCESS;
@@ -111,7 +108,7 @@ static void ntag_update(app_amiibo_t *app, ntag_t *p_ntag) {
     cwalk_append_segment(path, string_get_cstr(app->current_folder), string_get_cstr(app->current_file));
 
     // save to fs
-    int32_t res = p_driver->write_file_data(path, p_ntag->data, _ntag_data_size(p_ntag));
+    int32_t res = p_driver->write_file_data(path, p_ntag->data, sizeof(p_ntag->data));
     if (res > 0) {
         uint32_t head = to_little_endian_int32(&p_ntag->data[84]);
         uint32_t tail = to_little_endian_int32(&p_ntag->data[88]);
