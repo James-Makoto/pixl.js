@@ -75,6 +75,8 @@ const db_game_t game_list[] = {
 {72, 0, "Street Fighter 6", "街头霸王6", 5, 63}, 
 {73, 0, "Donkey Kong Bananza", "咚奇刚 蕉力全开", 5, 2}, 
 {74, 0, "Metroid Prime 4: Beyond", "密特罗德 究极4 超越未知", 10, 3}, 
-{255, 0, "Others", "未分类", 0, 2}, 
+{75, 0, "Super Mario Bros. Wonder", "超级马力欧兄弟 惊奇", 5, 5}, 
+{76, 0, "PRAGMATA", "识质存在", 1, 1}, 
+{255, 0, "Others", "未分类", 0, 6}, 
 {0, 0, 0, 0, 0}
 };

@@ -1323,7 +1323,17 @@ const db_link_t link_list[] = {
 {74, 0x05c00000, 0x043b1302, "Change background music while riding Vi-O-La/Replenish health and boost max health by 99 once per day", "每日解锁能量护盾/更改薇奥拉的BGM", ""}, 
 {74, 0x05c00000, 0x043a1302, "Change Vi-O-La's color/Improve Vi-O-La boost regeneration once per day/See total distance traveled on Vi-O-La", "每日提速薇奥拉加速能量恢复/更改薇奥拉的颜色/查看薇奥拉行驶总里程", ""}, 
 {74, 0x05c50000, 0x043c1302, "View a particular completed cutscene after beating game without needing 100% completion/Hear a random voice line from Sylux", "提前解锁完整剧情过场/随机播放赛拉克斯语音", ""}, 
+{75, 0x00000400, 0x04c10102, "Change decoration in Bellabel Park hub", "改变铃铃公园装饰", ""}, 
+{75, 0x00250100, 0x04c30102, "Change decoration in Bellabel Park hub", "改变铃铃公园装饰", ""}, 
+{75, 0x000a0100, 0x04c20102, "Change decoration in Bellabel Park hub", "改变铃铃公园装饰", ""}, 
+{75, 0x00000500, 0x04e90102, "Change decoration in Bellabel Park hub", "改变铃铃公园装饰", ""}, 
+{75, 0x00040100, 0x04ea0102, "Change decoration in Bellabel Park hub", "改变铃铃公园装饰", ""}, 
+{76, 0x35800000, 0x05062102, "Diana", "", ""}, 
 {255, 0x1f000000, 0x04c41e03, "", "", ""}, 
+{255, 0x1f010000, 0x04c61e03, "", "", ""}, 
 {255, 0x1f030100, 0x04c91e03, "", "", ""}, 
+{255, 0x350c0000, 0x04fa0f02, "", "", ""}, 
+{255, 0x350d0000, 0x04fb0f02, "", "", ""}, 
+{255, 0x350e0000, 0x04fc0f02, "", "", ""}, 
 {0, 0, 0, 0, 0, 0}
 };
