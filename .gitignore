@@ -49,4 +49,7 @@ dist
 
 fw/scripts/.venv
 
+fw/temp
 
+.DS_Store
+*.un~

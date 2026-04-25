@@ -36,16 +36,20 @@ def get_prorject_directory():
 
 
 def fetch_amiibo_from_api():
-    conn = urlopen("https://www.amiiboapi.org/api/amiibo/")
-    body = json.loads(conn.read())
-    amiibos = list()
-    for ami in body["amiibo"]: 
-        amiibo = Amiibo()
-        amiibo.id = ami["head"] + ami["tail"]
-        amiibo.name_en = ami["name"]
-        amiibo.game_series = ami["gameSeries"]
-        amiibos.append(amiibo)
-    return amiibos
+    try:
+        conn = urlopen("https://www.amiiboapi.org/api/amiibo/", timeout=5000)
+        body = json.loads(conn.read())
+        amiibos = list()
+        for ami in body["amiibo"]: 
+            amiibo = Amiibo()
+            amiibo.id = ami["head"] + ami["tail"]
+            amiibo.name_en = ami["name"]
+            amiibo.game_series = ami["gameSeries"]
+            amiibos.append(amiibo)
+        return amiibos
+    except Exception as e:
+        print("Error: %s" % e)
+        return list()   
 
 
 def read_amiibo_from_csv():
@@ -178,7 +182,7 @@ def gen_amiibo_game_c_file(games, links):
              game.name_cn, game.order, count_game_links( games, links, game.id)))
         f.write("{0, 0, 0, 0, 0}\n")
         f.write("};\n")
-    
+
 def gen_other_link(amiibos, links):
     linked_amiibo_ids = set()
     new_link = list()
@@ -208,6 +212,7 @@ write_amiibo_to_csv(amiibos_merged)
 amiibos_merged.sort(key=lambda x: x.id)
 print("Found %d amiibo records." % len(amiibos_merged))
 gen_amiibo_data_c_file(amiibos_merged)
+
 games = read_games_from_csv()
 links = read_link_from_csv()
 links = gen_other_link(amiibos_merged, links)

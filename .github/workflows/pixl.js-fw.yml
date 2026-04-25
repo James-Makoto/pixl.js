@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     container: solosky/nrf52-sdk:latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         submodules: 'true'
 
@@ -28,7 +28,7 @@ jobs:
     - name: copy artifact
       run: mv fw/_build/bootloader.hex . && mv fw/_build/pixljs.hex . && mv fw/_build/pixljs_all.hex . && mv fw/_build/pixjs_ota_v${{github.run_number}}.zip . && mv fw/docs/fw_readme.txt . && mv  fw/scripts/fw_update.bat .
     - name: upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: pixljs_fw_${{matrix.board}}
         path: |

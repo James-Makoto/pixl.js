@@ -13,6 +13,7 @@ typedef enum {
     APP_CHAMELEON_ID_EDIT_TYPE_UID,
     APP_CHAMELEON_ID_EDIT_TYPE_SAK,
     APP_CHAMELEON_ID_EDIT_TYPE_ATQA,
+    APP_CHAMELEON_ID_EDIT_TYPE_ATS,
 } app_chameleon_id_edit_type_t;
 
 typedef struct {
