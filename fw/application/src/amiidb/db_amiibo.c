@@ -911,7 +911,7 @@ const db_amiibo_t amiibo_list[] = {
 {0x350e0000, 0x04fc0f02, "Rudy", ""}, 
 {0x35400000, 0x05032002, "Grace Ashcroft", "Grace"}, 
 {0x35410000, 0x05042002, "Leon S. Kennedy", "Leon"}, 
-{0x35800000, 0x05062102, "Diana", "戴安娜"}, 
+{0x35800000, 0x05062102, "Diana", ""}, 
 {0x35c00000, 0x02500a02, "Shovel Knight", "铲子骑士"}, 
 {0x35c00000, 0x03920a02, "Shovel Knight - Gold Edition", "黄金铲子骑士"}, 
 {0x35c10000, 0x036c0a02, "Plague Knight", "瘟疫骑士"}, 
