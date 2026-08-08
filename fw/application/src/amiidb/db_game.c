@@ -40,9 +40,9 @@ const db_game_t game_list[] = {
 {37, 0, "Power Pros", "实况野球", 1, 6}, 
 {38, 0, "Resident Evil Revelations 2", "生化危机启示录2", 1, 7}, 
 {39, 0, "Resident Evil Revelations", "生化危机启示录", 1, 7}, 
-{40, 0, "Shovel Knight", "铲子骑士", 1, 5}, 
-{41, 0, "Shovel Knight Pocket Dungeon", "铲子骑士：口袋地牢", 1, 5}, 
-{42, 0, "Shovel Knight Showdown", "铲子骑士：终极对决", 1, 5}, 
+{40, 0, "Shovel Knight Series", "铲子骑士系列", 1, 5}, 
+{41, 0, "PRAGMATA", "识质存在", 1, 1}, 
+{42, 0, "Resident Evil Requiem", "生化危机9", 1, 7}, 
 {43, 0, "Splatoon 2", "喷射战士2", 1, 19}, 
 {44, 0, "Super Kirby Clash", "超级卡比猎人队", 1, 8}, 
 {45, 0, "Super Mario 3D World + Bowser's Fury", "超级马力欧 3D世界+狂怒世界", 1, 20}, 
@@ -77,8 +77,6 @@ const db_game_t game_list[] = {
 {74, 0, "Metroid Prime 4: Beyond", "密特罗德 究极4 超越未知", 10, 3}, 
 {75, 0, "Kirby Air Riders", "卡比的驭天飞行者", 1, 4}, 
 {76, 0, "Super Mario Bros. Wonder", "超级马力欧兄弟 惊奇", 5, 5}, 
-{77, 0, "PRAGMATA", "识质存在", 1, 1}, 
-{78, 0, "Resident Evil", "生化危机系列", 1, 2}, 
 {255, 0, "Others", "未分类", 0, 3}, 
 {0, 0, 0, 0, 0}
 };
