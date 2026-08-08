@@ -36,7 +36,7 @@ bool is_valid_amiibo_v3(uint32_t head, uint32_t tail){
     return (tail & 0xFF) == 0x03;
 }
 
-const char* get_amiibo_display_name(db_amiibo_t *amiibo){
+const char* get_amiibo_display_name(const db_amiibo_t *amiibo){
      uint8_t language = settings_get_data()->language;
     return language == LANGUAGE_ZH_HANS  && amiibo->name_cn[0] != '\0' ? amiibo->name_cn : amiibo->name_en;
 }

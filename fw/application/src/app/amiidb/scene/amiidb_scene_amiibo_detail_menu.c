@@ -19,7 +19,7 @@
 
 #include "amiidb_api_slot.h"
 
-static enum amiidb_detail_menu_t {
+enum amiidb_detail_menu_t {
     AMIIDB_DETAIL_MENU_RAND_UID,
     AMIIDB_DETAIL_MENU_AUTO_RAND_UID,
     AMIIDB_DETAIL_MENU_READ_ONLY,

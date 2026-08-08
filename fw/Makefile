@@ -1,4 +1,4 @@
-.PHONY: app bl clean
+.PHONY: app bl clean size_report size_report_files
 
 all: bl app ota
 
@@ -13,3 +13,9 @@ ota:
 
 clean:
 	@rm -rf _build/
+
+size_report:
+	@$(MAKE) -C application/ size_report
+
+size_report_files:
+	@$(MAKE) -C application/ size_report_files

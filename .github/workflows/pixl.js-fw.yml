@@ -5,9 +5,12 @@ on:
     branches: [ "develop", "neo_v2"]
     tags:  ["*"]
   pull_request:
-    types: ["opened"]
+    types: ["opened", "synchronize", "reopened"]
     branches: ["develop"]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -25,12 +28,57 @@ jobs:
       run: chown root:root .
     - name: build firmware
       run: cd fw && make all RELEASE=1 APP_VERSION=$GITHUB_RUN_NUMBER BOARD=${{matrix.board}}
+    - name: generate size report
+      run: cd fw && make size_report RELEASE=1 APP_VERSION=$GITHUB_RUN_NUMBER BOARD=${{matrix.board}}
+    - name: compare size against PR base (bytes)
+      run: |
+        set -eu
+        HEAD_REPORT_JSON="fw/_build/size_report_${{matrix.board}}.json"
+        COMPARISON_MD="fw/_build/size_comparison_${{matrix.board}}.md"
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          BASE_WORKTREE="/tmp/pixljs-base-${{matrix.board}}-${{ github.run_id }}-${{ github.run_attempt }}"
+          git fetch --no-tags --depth=1 origin "${BASE_SHA}"
+          trap 'git worktree remove "${BASE_WORKTREE}" --force || true' EXIT
+          git worktree add "${BASE_WORKTREE}" "${BASE_SHA}"
+          git -C "${BASE_WORKTREE}" submodule update --init --recursive
+          make -C "${BASE_WORKTREE}/fw" all RELEASE=1 APP_VERSION=$GITHUB_RUN_NUMBER BOARD=${{matrix.board}}
+          python3 fw/scripts/size_report.py summarize \
+            --bin "${BASE_WORKTREE}/fw/_build/pixljs.bin" \
+            --elf "${BASE_WORKTREE}/fw/_build/pixljs.out" \
+            --map "${BASE_WORKTREE}/fw/_build/pixljs.map" \
+            --top-symbols 20 \
+            --top-objects 20 \
+            --board "${{matrix.board}}" \
+            --release 1 \
+            --out-prefix "${BASE_WORKTREE}/fw/_build/size_report_${{matrix.board}}"
+          python3 fw/scripts/size_report.py compare \
+            --base "${BASE_WORKTREE}/fw/_build/size_report_${{matrix.board}}.json" \
+            --head "${HEAD_REPORT_JSON}" \
+            --output "${COMPARISON_MD}"
+          cp "${BASE_WORKTREE}/fw/_build/size_report_${{matrix.board}}.json" "fw/_build/size_report_base_${{matrix.board}}.json"
+          cp "${BASE_WORKTREE}/fw/_build/size_report_${{matrix.board}}.txt" "fw/_build/size_report_base_${{matrix.board}}.txt"
+        else
+          echo "Baseline comparison is available on pull_request runs only." > "${COMPARISON_MD}"
+        fi
     - name: copy artifact
-      run: mv fw/_build/bootloader.hex . && mv fw/_build/pixljs.hex . && mv fw/_build/pixljs_all.hex . && mv fw/_build/pixjs_ota_v${{github.run_number}}.zip . && mv fw/docs/fw_readme.txt . && mv  fw/scripts/fw_update.bat .
+      run: |
+        mv fw/_build/bootloader.hex .
+        mv fw/_build/pixljs.hex .
+        mv fw/_build/pixljs_all.hex .
+        mv fw/_build/pixjs_ota_v${{github.run_number}}.zip .
+        mv fw/docs/fw_readme.txt .
+        mv fw/scripts/fw_update.bat .
+        cp fw/_build/size_report_${{matrix.board}}.txt .
+        cp fw/_build/size_report_${{matrix.board}}.json .
+        cp fw/_build/size_comparison_${{matrix.board}}.md .
+        if [ -f fw/_build/size_report_base_${{matrix.board}}.txt ]; then cp fw/_build/size_report_base_${{matrix.board}}.txt .; fi
+        if [ -f fw/_build/size_report_base_${{matrix.board}}.json ]; then cp fw/_build/size_report_base_${{matrix.board}}.json .; fi
     - name: upload artifact
       uses: actions/upload-artifact@v7
       with:
         name: pixljs_fw_${{matrix.board}}
+        if-no-files-found: error
         path: |
           bootloader.hex
           pixljs.hex
@@ -38,3 +86,88 @@ jobs:
           pixjs_ota_v${{github.run_number}}.zip
           fw_readme.txt
           fw_update.bat
+          size_report_${{matrix.board}}.txt
+          size_report_${{matrix.board}}.json
+          size_comparison_${{matrix.board}}.md
+          size_report_base_${{matrix.board}}.txt
+          size_report_base_${{matrix.board}}.json
+
+  publish-size-report:
+    needs: build
+    if: ${{ always() && github.event_name == 'pull_request' && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+    - name: download firmware size reports
+      uses: actions/download-artifact@v7
+      with:
+        pattern: pixljs_fw_*
+        path: size-reports
+        merge-multiple: false
+
+    - name: assemble PR size report
+      run: |
+        {
+          echo '<!-- pixljs-firmware-size-report -->'
+          echo '## Firmware Size Report'
+          echo
+          echo "Generated from [workflow run ${GITHUB_RUN_NUMBER}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})."
+          echo
+          for board in LCD OLED; do
+            report="size-reports/pixljs_fw_${board}/size_comparison_${board}.md"
+            if [ -f "${report}" ]; then
+              sed 's/^# Size Comparison/### Size Comparison/' "${report}"
+            else
+              echo "### Size Comparison (${board})"
+              echo
+              echo "No size comparison report was generated for this board."
+            fi
+            echo
+          done
+        } > size_report_comment.md
+        cat size_report_comment.md >> "${GITHUB_STEP_SUMMARY}"
+
+    - name: update PR size report comment when permitted
+      uses: actions/github-script@v8
+      with:
+        script: |
+          const fs = require("fs");
+          const marker = "<!-- pixljs-firmware-size-report -->";
+          const body = fs.readFileSync("size_report_comment.md", "utf8");
+          const { owner, repo } = context.repo;
+          const issue_number = context.issue.number;
+          try {
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            });
+            const previous = comments.find((comment) =>
+              comment.user?.type === "Bot" && comment.body?.includes(marker)
+            );
+            if (previous) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: previous.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }
+          } catch (error) {
+            core.notice(
+              `Unable to update the PR size report comment: ${error.message}. ` +
+                "The same report is available in the workflow summary and artifacts."
+            );
+          }

@@ -73,7 +73,7 @@ static inline void hal_spi_flash_write_read(uint8_t *tx_data, uint8_t tx_len, ui
     hal_spi_bus_release(&m_dev);
 }
 
-static inline void hal_spi_flash_write_write(uint8_t *tx_data, uint8_t tx_len, uint8_t *tx_data2, uint32_t tx_len2) {
+static inline void hal_spi_flash_write_write(uint8_t *tx_data, uint8_t tx_len, const uint8_t *tx_data2, uint32_t tx_len2) {
     hal_spi_bus_aquire(&m_dev);
 
     spi_transaction_t trans_tx = {
@@ -88,7 +88,7 @@ static inline void hal_spi_flash_write_write(uint8_t *tx_data, uint8_t tx_len, u
 
     if (tx_len2 > 0) {
         spi_transaction_t trans_rx = {
-            .p_tx_buffer = tx_data2,
+            .p_tx_buffer = (void *)tx_data2,
             .tx_length = tx_len2,
             .p_rx_buffer = NULL,
             .rx_length = 0,

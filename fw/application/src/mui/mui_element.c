@@ -45,7 +45,7 @@ void mui_element_autowrap_text(mui_canvas_t *p_canvas, uint8_t x, uint8_t y, uin
     uint8_t xi = x;
     uint8_t yi = y;
 
-    char *p = text;
+    const char *p = text;
     char utf8[5];
 
     while (*p != 0 && yi < y + h) {
@@ -161,7 +161,7 @@ uint16_t mui_element_text_height(mui_canvas_t *p_canvas, uint8_t w, const char *
     uint8_t xi = 0;
     uint16_t yi = 0;
 
-    char *p = text;
+    const char *p = text;
     char utf8[5];
 
     while (*p != 0) {

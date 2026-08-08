@@ -214,7 +214,7 @@ static void gap_params_init(void) {
  */
 static void nrf_qwr_error_handler(uint32_t nrf_error) { APP_ERROR_HANDLER(nrf_error); }
 
-static void nus_event_async_call_rx_data(void *p_event_data, uint16_t event_size) {
+static void nus_event_async_call_rx_data(const void *p_event_data, uint16_t event_size) {
     // NRF_LOG_INFO("nus_event_async_call_rx_data: bytes=%d", event_size);
     if (m_nus_rx_data_handler) {
         m_nus_rx_data_handler(p_event_data, event_size);

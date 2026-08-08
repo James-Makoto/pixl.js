@@ -433,7 +433,7 @@ export default {
         }).catch(e => {
           this.$message({
             type: 'error',
-            message: row.name + `${this.$t("format.formaterr")}` + err
+            message: row.name + `${this.$t("format.formaterr")}` + e
           });
           thiz.table_loading = false;
         });
@@ -467,7 +467,7 @@ export default {
         }).catch(e => {
           this.$message({
             type: 'error',
-            message: row.name + `${this.$t("del.error")}` + "[" + err + "]"
+            message: row.name + `${this.$t("del.error")}` + "[" + e + "]"
           });
           thiz.table_loading = false;
         });

@@ -102,6 +102,8 @@ This application allows the emulation of amiibo from the list of well know ones,
 
 _Each time one an amiibo is used the initial UUID is random generated._
 
+The database creates virtual tags from amiibo model data. Effects that depend on savedata or the encrypted application area, such as a 20-heart Wolf Link in Breath of the Wild, are not included in the database entry. To use that kind of savedata-dependent behavior, use Amiibo Emulator with your own legally acquired `.BIN` dump.
+
 Once you open the application the main menu have the options
 
 |   |
@@ -375,13 +377,15 @@ In this interface, you can perform the import and export of card data.
 |   |
 
 The import and export files are stored in the `/chameleon/dump/` folder.<br />
-If you need to import data, you need to write the data file you want to import to the above folder through the webpage in advance.
+If you need to import data, write the data file you want to import to that folder through the webpage in advance.
+
+Import files must be raw binary card dumps, not text or hex export files. The loader lists regular files from `/chameleon/dump/`, so the filename extension is only for your own organization; for example, `.dump` and `.bin` can both work if the file content is raw binary data. A file exported with `Save` is a good example of the expected format.
 
 * Load: Pressing the middle button allows you to enter the load interface. The interface will read all files under `/chameleon/dump/`, and pressing the middle button can perform the import.
 * Save: Pressing the middle button allows you to export the current card to the `/chameleon/dump/` folder.
 * Factory: Pressing the middle button allows you to reset the current card data to the default built-in empty card data.
 
-> The file size loaded must be exactly the same as the current card type to be imported. The data file size for different cards refers to the table in the `Card Emulation`.
+> The file size loaded must be exactly the same as the current card type to be imported. For example, an NTAG 215 dump must be 540 bytes and a Mifare 1K dump must be 1024 bytes. The data file size for each card type is listed in the table in `Card Emulation`.
 
 
 ## Advanced

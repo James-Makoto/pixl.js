@@ -27,6 +27,10 @@ struct amiibo_view_s {
     uint16_t desc_total;
     uint16_t desc_page_size;
     uint8_t desc_step;
+    mui_anim_t desc_anim;
+    uint16_t desc_anim_max_offset;
+    bool desc_anim_running;
+    bool desc_auto_scroll_disabled;
 };
 
 amiibo_view_t *amiibo_view_create();

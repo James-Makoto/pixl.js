@@ -53,3 +53,5 @@ fw/temp
 
 .DS_Store
 *.un~
+
+**/.vscode/.cortex-debug*.json

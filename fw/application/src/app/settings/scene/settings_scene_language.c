@@ -6,13 +6,14 @@
 #include "settings_scene.h"
 #include "utils2.h"
 #include "version2.h"
+#include <stdint.h>
 
 
 static void settings_scene_language_list_view_on_selected(mui_list_view_event_t event, mui_list_view_t *p_list_view,
                                                           mui_list_item_t *p_item) {
 
     app_settings_t *app = p_list_view->user_data;
-    uint32_t selection = (uint32_t)p_item->user_data;
+    uint32_t selection = (uint32_t)(uintptr_t)p_item->user_data;
     settings_data_t *p_settings = settings_get_data();
     if (selection < LANGUAGE_COUNT){
         p_settings->language = selection;
@@ -26,7 +27,7 @@ void settings_scene_language_on_enter(void *user_data) {
 
     app_settings_t *app = user_data;
     for (uint8_t i = 0; i < LANGUAGE_COUNT; i++){
-      mui_list_view_add_item(app->p_list_view, 0xe105, getLangDesc(i), (void *)i);
+      mui_list_view_add_item(app->p_list_view, 0xe105, getLangDesc(i), (void *)(uintptr_t)i);
     }
     mui_list_view_add_item(app->p_list_view, 0xe069, getLangString(_L_BACK), (void *)NULL_USER_DATA);
 

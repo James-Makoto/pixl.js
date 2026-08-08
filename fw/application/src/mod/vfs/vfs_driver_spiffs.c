@@ -218,7 +218,7 @@ int32_t vfs_spiffs_open_dir(const char *dir, vfs_dir_t *fd) {
         return VFS_ERR_NOOBJ;
     }
 
-    NRF_LOG_INFO("open dir %s\n", nrf_log_push(dir));
+    NRF_LOG_INFO("open dir %s\n", nrf_log_push((char *)dir));
 
     return VFS_OK;
 }
@@ -306,7 +306,7 @@ int32_t vfs_spiffs_close_dir(vfs_dir_t *fd) {
 int32_t vfs_spiffs_create_dir(const char *dir) {
     char path[VFS_MAX_PATH_LEN];
 
-    NRF_LOG_INFO("create dir %s, %d\n", nrf_log_push(dir), strlen(dir));
+    NRF_LOG_INFO("create dir %s, %d\n", nrf_log_push((char *)dir), strlen(dir));
     int res = vfs_check_folder_path(dir);
     if (res != VFS_OK) {
         NRF_LOG_INFO("folder path check failed: %d", res);
@@ -327,7 +327,7 @@ int32_t vfs_spiffs_remove_dir(const char *dir_name) {
     strncpy(p_dir->dir, dir_name, sizeof(p_dir->dir));
     strcat(p_dir->dir, "/");
 
-    NRF_LOG_INFO("remove dir %s\n", nrf_log_push(dir_name));
+    NRF_LOG_INFO("remove dir %s\n", nrf_log_push((char *)dir_name));
 
     if (!SPIFFS_opendir(&fs, "/", &p_dir->d)) {
         return VFS_ERR_NOOBJ;
@@ -474,14 +474,14 @@ int32_t vfs_spiffs_update_file_meta(const char *file, void *meta, size_t meta_si
         err = SPIFFS_update_meta(&fs, file, meta);
     }
 
-    NRF_LOG_INFO("update file meta: %s, size:%d res: %d", nrf_log_push(file), meta_size, err);
+    NRF_LOG_INFO("update file meta: %s, size:%d res: %d", nrf_log_push((char *)file), meta_size, err);
     return vfs_spiffs_map_error_code(err);
 }
 
 /**short opearation*/
 int32_t vfs_spiffs_write_file_data(const char *file, void *buff, size_t buff_size) {
 
-    NRF_LOG_INFO("write file data %s\n", nrf_log_push(file));
+    NRF_LOG_INFO("write file data %s\n", nrf_log_push((char *)file));
 
     int ret = vfs_check_file_path(file);
     if (ret != VFS_OK) {
@@ -529,7 +529,7 @@ int32_t vfs_spiffs_rename_file(const char *file, const char *new_file) {
         return ret;
     }
 
-    NRF_LOG_INFO("rename file %s => %s\n", nrf_log_push(file), nrf_log_push(new_file));
+    NRF_LOG_INFO("rename file %s => %s\n", nrf_log_push((char *)file), nrf_log_push((char *)new_file));
     int res = SPIFFS_rename(&fs, file, new_file);
     return vfs_spiffs_map_error_code(res);
 }

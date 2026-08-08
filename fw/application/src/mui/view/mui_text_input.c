@@ -297,7 +297,7 @@ void mui_text_input_reset(mui_text_input_t *p_view) {
 
 void mui_text_input_set_focus_key(mui_text_input_t *p_view, char key) {
     for (uint32_t row = 0; row < 3; row++) {
-        mui_text_input_key_t *input_key = get_row(row);
+        const mui_text_input_key_t *input_key = get_row(row);
         for (uint32_t col = 0; col < get_row_size(row); col++) {
             if (input_key[col].text == key) {
                 p_view->focus_column = col;

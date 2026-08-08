@@ -1,13 +1,18 @@
 
 # **Welcome to the pixl.js project documentation !**
 
-The pixl.jx project is a forked version of the original [Pixl.js](http://www.espruino.com/Pixl.js). The main focus of this fork is to simulate Amiibo.
+The pixl.js project is inspired by the original [Espruino Pixl.js](http://www.espruino.com/Pixl.js) board. This firmware is focused on Amiibo and NFC emulation and is implemented as native C firmware, not as the stock Espruino JavaScript runtime.
+
+The name comes from the early hardware work: the original Espruino Pixl.js board was close to the device shape needed for Amiibo emulation, so this project kept the pixl.js name while changing the PCB, adding storage, and building a dedicated firmware.
+
+If you want to run your own JavaScript code, use the original Espruino Pixl.js hardware/firmware or a compatible Espruino build. The release packages from this repository are for the Amiibo-focused pixl.js firmware.
 
 This fork is divided in two main sections, Hardware and Firmware
 
 
 # [Hardware](01-Hardware.md)
 
+- [Buyer guide and hardware variants](00-Buyer-Guide.md)
 - [PCB](01-Hardware.md#PCB)
 - [BOM](01-Hardware.md#BOM)
 - [Pictures](01-Hardware.md#Pictures)

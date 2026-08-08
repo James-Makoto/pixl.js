@@ -3,7 +3,7 @@ After you build the hardware you need to flash the firmware for the first time, 
 The firmware can be flashed or upgraded using one of the follow methods:
 
 ## Method 1: Wired
-This method requires a CMASS-DAP compatible JLink or DAPLink flasher.  We recommend PWLINK2 Lite Emulator STM32 Programmer, you can buy one for about 9.9 yuan on [Taobao](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.4b942e8deXyaQO&id=675067753017&_u=d2p75qfn774a "Taobao")
+This method requires a CMSIS-DAP-compatible JLink or DAPLink flasher.  We recommend PWLINK2 Lite Emulator STM32 Programmer, you can buy one for about 9.9 yuan on [Taobao](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.4b942e8deXyaQO&id=675067753017&_u=d2p75qfn774a "Taobao")
 
 Download the latest version of the firmware zip package. It should contain next files:
 - fw_update.bat
@@ -38,7 +38,8 @@ On iOS, The firmware is `pixjs_ota_vxxx.zip` in the compressed package and needs
 On Android you can use the DFU icon on the upper right of the screen, Select the `Distribution packet (ZIP)` option and browse your storage for the `pixjs_ota_vxxx.zip` file.
 
 ### Web page method
-Download the latest version of the firmware zip package correspondent to your device version, and extract it to a directory.
+Download the latest version of the firmware zip package corresponding to your device version, and extract it to a directory.
+The release package is an outer zip file for your hardware version. Do not upload that outer zip file to the DFU updater. After extracting it, use the inner OTA package named `pixjs_ota_vxxx.zip`. Uploading the outer release zip can cause errors such as `Unable to find manifest` or `init not found`.
 
 The project provide two ways to achive a DFU update:
 
@@ -50,34 +51,57 @@ Also you can go directly to the Firmware Update Page.
 
 First you need to put your pixl.js device on "Firmware Update" mode.  To do so, select the `Settings` app and select the item `Firmware Update`.
 
-Open the [firmware update page](https://thegecko.github.io/web-bluetooth-dfu).  Drag and drop or select `pixljs_ota_xxx.zip` file from the folder where you extract the firmware package.
+Open the [firmware update page](https://thegecko.github.io/web-bluetooth-dfu).  Drag and drop or select the inner `pixjs_ota_vxxx.zip` file from the folder where you extracted the firmware package.
 
 Then press the `SELECT DEVICE` button on the page you should see a device called `pixl dfu` connect to start the firmware upgrade process.
 
 
-# Repair wrong firmware version.
+# Recovery after a wrong or incompatible firmware update
 
-If by mistake you program the wrong version (LCD/OLED) on your device, the device will work but will no show information on screen, the backlight of the LCD version could turn on.
+If an update completes but the device appears unusable, it may still be recoverable. The most common cases are a display contrast setting that makes the screen unreadable, or a firmware package that does not match the hardware.
 
-You can use following methods to recover or flash the correct firmware version.
+## Blank or very faint LCD after update
+
+If the LCD backlight turns on but the text is invisible or extremely faint, the contrast setting may be too low. The device can still be running normally.
+
+Try this blind button sequence to reach the contrast setting and raise it:
+
+1. Make sure the device is awake. If the screen is asleep, press MIDDLE once.
+2. Press LEFT once.
+3. Press MIDDLE once.
+4. Press RIGHT 3 times.
+5. Press MIDDLE once.
+6. Press RIGHT repeatedly until the text becomes visible.
+7. Set the contrast to a visible value, commonly around 50 to 80.
+
+If this works, no firmware reflash is required.
+
+## Wrong LCD/OLED package or unsupported hardware variant
+
+If you accidentally flash the wrong hardware version (LCD/OLED), or flash this firmware onto an unsupported modified device, the device can still boot, but the display driver, screen orientation, or button map may not match the hardware. You may see stripes, a garbled screen, an upside-down screen, broken buttons, or only the LCD backlight. The display will stay this way until you flash firmware that matches your hardware.
+
+You can use either method below to recover.
 
 ## Option 1: Flash the firmware via wired connection
 
-If you have any CMASS-DAP compatible JLink or DAPLink programer on hand, you can use the [Wired Method](Flash-Firmware#Method 1: Wired "Wired Method") to flash the correct firmware version manually.
+If you have any CMSIS-DAP-compatible JLink or DAPLink programmer on hand, you can use the [Wired Method](#method-1-wired) to flash the correct firmware version manually.
 
 
-## Option 2: Follow special key sequences to enter the DFU mode again to flash correct firmware version.
+## Option 2: Enter DFU mode with the key sequence.
 
-First make sure your device is in off state, then press key sequences bellow to enter into the `DFU Mode`
+Because the screen is unreadable, enter `DFU Mode` by pressing the buttons blindly:
 
-- Any key to wake up the device
-- LEFT
-- MIDDLE
-- LEFT X N 
-- MIDDLE
+1. Make sure your device is off.
+2. Press any key once to wake up the device.
+3. Press LEFT once.
+4. Press MIDDLE once.
+5. Press LEFT 4 times if the wrong firmware is older than 2.11.x, or LEFT 5 times if it is 2.11.x or newer.
+6. Press MIDDLE once.
 
-If the firmware version before 2.11.x, press LEFT x 4
-If the firmware version after 2.11.x, press LEFT x 5
+If you do not know which version was flashed, try LEFT 5 times first because current releases use that menu position. If the device does not advertise as `pixl dfu`, power it off and try again with LEFT 4 times.
 
-Now you device is on DFU mode, use any of the [nRF Connect APP](#nRF-Connect-APP)  or [Directly to the Firmware Update Page](#directly-to-the-firmware-update-page) methods to upgrade the fimware.
+The screen may still show stripes or a garbled image while the device is in DFU mode. This is expected when the wrong display firmware is installed.
 
+If blind menu navigation fails, use the bootloader DFU button instead: power off the device, then hold RIGHT and power on the device while continuing to hold RIGHT for about 3 seconds until the device advertises as `pixl dfu`.
+
+Now the device is in DFU mode. Use either the [nRF Connect APP](#nrf-connect-app) or the [Firmware Update Page](#directly-to-the-firmware-update-page) to flash the correct `pixjs_ota_vxxx.zip` file for your hardware version. If the web update stalls, start the update again; DFU can resume. If the official web page does not find the device or the browser update continues to stall, use nRF Connect or the wired method instead.

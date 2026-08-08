@@ -21,7 +21,7 @@ typedef struct {
 } app_desktop_t;
 
 static void app_desktop_list_view_on_selected(app_list_view_event_t event, app_list_view_t *p_view) {
-    mini_app_t * app = app_list_view_get(p_view, app_list_view_get_focus(p_view));
+    const mini_app_t *app = app_list_view_get(p_view, app_list_view_get_focus(p_view));
     mini_app_launcher_run(mini_app_launcher(), app->id);
 }
 

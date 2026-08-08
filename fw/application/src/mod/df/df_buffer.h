@@ -18,7 +18,8 @@ typedef struct {
 
 #define NEW_BUFFER(name, _buff, _cap) buffer_t name = {.buff = (_buff), .pos = 0, .limit = 0, .cap = (_cap)}
 
-#define NEW_BUFFER_READ(name, _buff, _limit) buffer_t name = {.buff = (_buff), .pos = 0, .limit = (_limit), .cap = (_limit)}
+#define NEW_BUFFER_READ(name, _buff, _limit)                                                                               \
+    buffer_t name = {.buff = (uint8_t *)(uintptr_t)(_buff), .pos = 0, .limit = (_limit), .cap = (_limit)}
 
 #define NEW_BUFFER_LOCAL(name, _cap)                                                                                   \
     uint8_t _##name##_data[(_cap)];                                                                                    \
@@ -107,7 +108,7 @@ static inline void buff_put_char(buffer_t *buffer, char value) {
  *
  *  @return      : None
  */
-static inline void buff_put_byte_array(buffer_t *buffer, void *value, size_t len) {
+static inline void buff_put_byte_array(buffer_t *buffer, const void *value, size_t len) {
     memcpy(&buffer->buff[buffer->limit], value, len);
     buffer->limit += len;
 }
@@ -120,13 +121,13 @@ static inline void buff_put_byte_array(buffer_t *buffer, void *value, size_t len
  *
  *  @return      : None
  */
-static inline void buff_put_string(buffer_t *buffer, char *string) {
+static inline void buff_put_string(buffer_t *buffer, const char *string) {
     uint16_t len = strlen(string);
     buff_put_u16(buffer, len);
     buff_put_byte_array(buffer, string, len);
 }
 
-static inline void buff_put_string_u8(buffer_t *buffer, char *string) {
+static inline void buff_put_string_u8(buffer_t *buffer, const char *string) {
     uint8_t len = strlen(string);
     buff_put_u8(buffer, len);
     buff_put_byte_array(buffer, string, len);

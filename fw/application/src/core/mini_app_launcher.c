@@ -37,7 +37,7 @@ static void mini_app_launcher_inst_run(mini_app_launcher_t *p_launcher, uint32_t
 }
 
 void mini_app_launcher_run_with_retain_data(mini_app_launcher_t *p_launcher, uint32_t id, uint8_t *retain_data) {
-    mini_app_t *p_app = mini_app_registry_find_by_id(id);
+    const mini_app_t *p_app = mini_app_registry_find_by_id(id);
     if (p_app == NULL) {
         return;
     }
@@ -99,7 +99,7 @@ void mini_app_launcher_sleep(mini_app_launcher_t *p_launcher) {
     cache_data_t *p_cache = cache_get_data();
     if (app) {
         settings_data_t *p_settings = settings_get_data();
-        NRF_LOG_INFO("running APP: %d %s %d", app->p_app->id, nrf_log_push(app->p_app->name),
+        NRF_LOG_INFO("running APP: %d %s %d", app->p_app->id, nrf_log_push((char *)app->p_app->name),
                      app->p_app->hibernate_enabled);
         if (app->p_app->hibernate_enabled == 1 && p_settings->hibernate_enabled == 1) {
             p_cache->id = app->p_app->id;

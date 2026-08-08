@@ -17,17 +17,17 @@ _L_APP_SET,Settings,系统设置,系統設定,Configuraciones,Beállítások,Ein
 _L_APP_SET_VERSION,Version,版本,版本,Versión,Verzió,Version,Version,Versie,Versão,バージョン,Versão,Versione,Версия,Wersja,Version
 _L_APP_SET_STORAGE_USED,Used,已用,已用,Usado,Használt,Belegt,Utilisé,Gebruikt,Usado,使用ストレージ,Usada,Usato,Занято,Używane,Använt
 _L_APP_SET_STORAGE,External Storage,外置存储,外置存儲,M. Flash,Külső Tároló,Externer Speicher,Stockage Externe,Externe Opslag,Armazenamento Externo,外部ストレージ,Memoria Externa,Memoria esterna,Накопитель,Pamięć Zewnętrzna,Extern lagring
-_L_APP_SET_OLED_CONTRAST,Contrast,对比度,對比度,Contraste,Kontraszt,Kontrast,Contraste,Contrast,Contraste do,コントラスト,Contraste,Contrasto,Контрастность,Kontrast OLED,Kontrast
-_L_APP_SET_OLED_CONTRAST_TITLE,Contrast,对比度,對比度,Contraste,Kontraszt,Kontrast,Contraste,Contrast,Contraste do,コントラスト,Contraste,Contrasto,Контраст,Kontrast,Kontrast
+_L_APP_SET_OLED_CONTRAST,Contrast,对比度,對比度,Contraste,Kontraszt,Kontrast,Contraste,Contrast,Contraste do,コントラスト,Contraste,Contrasto,Контраст,Kontrast OLED,Kontrast
+_L_APP_SET_OLED_CONTRAST_TITLE,Contrast,对比度,對比度,Contraste,Kontraszt,Kontrast,Contraste,Contrast,Contraste do,コントラスト,Contraste,Contrasto,Контрастность,Kontrast,Kontrast
 _L_APP_SET_LCD_BACKLIGHT,Backlight,背光亮度,背光亮度,Brillo,Háttérvilágítás,Beleuchtung,Rétroéclairage,Achtergrondverlichting,Luz de Fundo,バックライト,Brilho,Luminosità,Подсветка,Podświetlenie,Bakgrundsljus
 _L_APP_SET_LCD_BACKLIGHT_TITLE,Backlight Brightness,背光亮度,背光亮度,Brillo de fondo,Háttérvilágítás Fényerő,Helligkeit,Luminosité du Rétroéclairage,Helderheid Achtergrondverlichting,Brilho da Luz de Fundo,バックライトの明るさ,Brilho do Ecrã,Luminosità schermo,Яркость подсветки,Jasność Podświetlenia,Ljusstyrka
 _L_APP_SET_ANIM,Menu Animation,动画效果,動畫效果,Animar menú,Menü Animáció,Menü Animation,Animation du Menu,Menu-Animatie,Animação do Menu,メニュー アニメーション,Animação do Menu,Animazione menu,Анимация меню,Animowane Menu,Menyanimation
-_L_APP_SET_LIPO_BAT,LiPO Battery,LiPO电池,LiPO電池,Batería LiPO,LiPO Akkumulátor,LiPO Batterie,Batterie LiPO,LiPO-Batterij,Bateria LiPO,LiPOバッテリー,Bateria LiPO,Batteria LiPO,Батарея LiPO,Bateria LiPO,LiPO-batteri
+_L_APP_SET_LIPO_BAT,LiPO Battery,LiPO电池,LiPO電池,Batería LiPO,LiPO Akkumulátor,LiPO Batterie,Batterie LiPO,LiPO-Batterij,Bateria LiPO,LiPOバッテリー,Bateria LiPO,Batteria LiPO,Батарея LiPo,Bateria LiPO,LiPO-batteri
 _L_APP_SET_SHOW_MEM_USAGE,Memory Used,内存使用率,記憶體使用率,Estad. Mem.,Használt Memória,Speicheranzeige,Mémoire Utilisée,Gebruikt Geheugen,Memória Usada,使用メモリ,Memoria Usada,Memoria usata,Статус памяти,Wskaźnik Pamięci,Använt minne
 _L_APP_SET_HIBERNATE,Fast Wakeup,快速唤醒,快速喚醒,Hibernar,Gyors Ébresztés,Schnelles Aufwachen,Réveil Rapide,Snel Ontwaken,Despertar Rápido,高速起動,Suspender,Risveglio rapido,Гибернация,Szybkie Wybudzanie,Snabb väckning
 _L_APP_SET_SLEEP_TIMEOUT,Sleep Timeout,休眠时间,休眠時間,Dormir en:,Alvási Időkorlát,Standby nach,Délai de mise en veille,Time-out Slaapstand,Tempo Limite de Suspensão,スリープタイムアウト,Suspender em:,Timeout di sospensione,Таймаут сна,Opóźnienie Uśpienia,Timeout för viloläge
 _L_APP_SET_LANGUAGE,Language,系统语言,系統語言,Idioma,Nyelv,Sprache,Langue,Taal,Idioma,言語,Idioma,Lingua,Язык,Język,Språk
-_L_APP_SET_GO_SLEEP,Go Sleep,进入休眠,進入休眠,Dormir,,,,,,,,,В режим сна,Uśpij Teraz,Viloläge
+_L_APP_SET_GO_SLEEP,Go Sleep,进入休眠,進入休眠,Dormir,,,,,,,,,Перейти в режим сна,Uśpij Teraz,Viloläge
 _L_APP_SET_DFU,Firmware Update,固件更新,軟體升級,Actualizar firmware,Firmware Frissítés,Firmw. Aktualisierung,Mise à Jour du Micrologiciel,Firmware Bijwerken,Atualização de Firmware,ファームウェア更新,Atualizações,Aggiornamento firmware,Обновление ПО,Aktualizacja Oprogramowania,Firmware-uppdatering
 _L_APP_SET_REBOOT,System Reboot,重启设备,重啟設備,Reiniciar,Rendszer Újraindítása,System Neustart,Redémarrage du Système,Systeem Herstarten,Reinicialização do Sistema,システム再起動,Reiniciar,Riavvio del sistema,Перезагрузка,Restart Systemu,Starta om
 _L_APP_SET_RESET_DEFAULT,Reset Default Setting,重置默认配置,重置默認配置,Restablecer config.,Alapért. Beállítás Visszaállítása,Standardeinstellungen,Rétablir les Paramètres par Défaut,Terugzetten Naar Standaardwaarden,Restaurar Configurações Padrão,デフォルト設定に戻す,Repor Definições,Ripristina impostazioni predefinite,Сброс настроек,Przywróć Domyślne Ustawienia,Fabriksinställningar

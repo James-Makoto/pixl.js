@@ -31,7 +31,7 @@ int32_t mui_canvas_draw_utf8_clip(mui_canvas_t *p_canvas, int32_t x, int32_t y, 
     int32_t yi = y;
     int32_t w = 0;
 
-    char *p = text;
+    const char *p = text;
     char utf8[5];
 
     while (*p != 0) {
@@ -60,7 +60,7 @@ uint8_t mui_canvas_draw_glyph(mui_canvas_t *p_canvas, uint8_t x, uint8_t y, uint
 }
 
 uint16_t mui_canvas_draw_utf8_truncate(mui_canvas_t* p_canvas, uint8_t x, uint8_t y, uint8_t max_width, const char *str) {
-    char *p = str;
+    const char *p = str;
     char utf8[5];
 
     if (max_width < mui_canvas_get_utf8_width(p_canvas, str)) {
@@ -72,7 +72,7 @@ uint16_t mui_canvas_draw_utf8_truncate(mui_canvas_t* p_canvas, uint8_t x, uint8_
                 uint8_t utf8_w = mui_canvas_draw_utf8(p_canvas, x, y, utf8);
                 x += utf8_w;
             } else {
-                uint8_t *font = u8g2_GetFont(p_canvas->fb);
+                const uint8_t *font = u8g2_GetFont(p_canvas->fb);
                 u8g2_SetFont(p_canvas->fb, u8g2_font_siji_t_6x10);
                 uint8_t utf8_w = mui_canvas_draw_glyph(p_canvas, x, y - 1, 0xe21f);
                 u8g2_SetFont(p_canvas->fb, font);

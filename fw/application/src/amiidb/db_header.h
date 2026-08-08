@@ -49,6 +49,6 @@ const db_amiibo_t * get_amiibo_by_id(uint32_t head, uint32_t tail);
 const db_link_t* get_link_by_id(uint8_t game_id, uint32_t head, uint32_t tail);
 bool is_valid_amiibo_v3(uint32_t head, uint32_t tail);
 
-const char* get_amiibo_display_name(db_amiibo_t *amiibo);
+const char* get_amiibo_display_name(const db_amiibo_t *amiibo);
 
 #endif

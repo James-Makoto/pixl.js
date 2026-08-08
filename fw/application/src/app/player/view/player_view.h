@@ -50,7 +50,7 @@ player_view_t* player_view_create();
 void player_view_free(player_view_t* p_view);
 mui_view_t* player_view_get_view(player_view_t* p_view);
 
-void player_view_play(player_view_t* p_view, vfs_drive_t drive, char* path);
+void player_view_play(player_view_t* p_view, vfs_drive_t drive, const char* path);
 void player_view_stop(player_view_t *p_view);
 
 static inline void player_view_set_event_cb(player_view_t* p_view, player_view_event_cb event_cb){

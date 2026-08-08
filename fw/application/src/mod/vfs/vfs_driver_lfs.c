@@ -273,7 +273,7 @@ int32_t vfs_lfs_remove_dir(const char *dir) {
 }
 
 int32_t vfs_lfs_rename_dir(const char *old_dir, const char *new_dir) {
-    int32_t err = lfs_rename(&lfs, old_dir, old_dir);
+    int32_t err = lfs_rename(&lfs, old_dir, new_dir);
     return vfs_lfs_map_error_code(err);
 }
 

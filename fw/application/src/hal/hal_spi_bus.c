@@ -37,9 +37,9 @@ void hal_spi_bus_attach(spi_device_t *p_dev) {
     nrf_gpio_pin_set(p_dev->cs_pin);
 }
 
-void hal_spi_bus_aquire(spi_device_t *p_dev) { nrf_gpio_pin_clear(p_dev->cs_pin); }
+void hal_spi_bus_aquire(const spi_device_t *p_dev) { nrf_gpio_pin_clear(p_dev->cs_pin); }
 
-void hal_spi_bus_release(spi_device_t *p_dev) { nrf_gpio_pin_set(p_dev->cs_pin); }
+void hal_spi_bus_release(const spi_device_t *p_dev) { nrf_gpio_pin_set(p_dev->cs_pin); }
 
 uint32_t hal_spi_bus_xfer(spi_transaction_t *p_trans) {
     uint32_t err_code = NRF_SUCCESS;

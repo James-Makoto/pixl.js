@@ -13,13 +13,14 @@
 
 #include "mui_icons.h"
 #include "tag_helper.h"
+#include <stdint.h>
 
 void chameleon_scene_menu_card_write_mode_select_on_event(mui_list_view_event_t event, mui_list_view_t *p_list_view,
                                                           mui_list_item_t *p_item) {
     app_chameleon_t *app = p_list_view->user_data;
     switch (p_item->icon) {
     case ICON_DATA: {
-        uint8_t slot = (uint8_t)p_item->user_data;
+        uint8_t slot = (uint8_t)(uintptr_t)p_item->user_data;
         tag_emulation_change_slot(slot, false);
         nfc_tag_mf1_write_mode_t mode = mui_list_view_get_focus(p_list_view);
         nfc_tag_mf1_set_write_mode(mode);
@@ -35,7 +36,7 @@ void chameleon_scene_menu_card_write_mode_select_on_event(mui_list_view_event_t 
 void chameleon_scene_menu_card_write_mode_select_on_enter(void *user_data) {
     app_chameleon_t *app = user_data;
     for (uint32_t i = 0; i < 4; i++) {
-        mui_list_view_add_item(app->p_list_view, ICON_DATA, tag_helper_get_mf_write_mode_name(i), i);
+        mui_list_view_add_item(app->p_list_view, ICON_DATA, tag_helper_get_mf_write_mode_name(i), (void *)(uintptr_t)i);
     }
     mui_list_view_add_item(app->p_list_view, ICON_BACK, _T(MAIN_RETURN), NULL_USER_DATA);
 

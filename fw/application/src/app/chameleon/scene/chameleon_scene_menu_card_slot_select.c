@@ -13,13 +13,14 @@
 
 #include "mui_icons.h"
 #include "tag_helper.h"
+#include <stdint.h>
 
 void chameleon_scene_menu_card_slot_select_on_event(mui_list_view_event_t event, mui_list_view_t *p_list_view,
                                                     mui_list_item_t *p_item) {
     app_chameleon_t *app = p_list_view->user_data;
     switch (p_item->icon) {
     case ICON_DATA: {
-        uint8_t slot = (uint8_t)p_item->user_data;
+        uint8_t slot = (uint8_t)(uintptr_t)p_item->user_data;
         tag_emulation_change_slot(slot, false);
         mui_scene_dispatcher_previous_scene(app->p_scene_dispatcher);
     } break;
@@ -38,7 +39,7 @@ void chameleon_scene_menu_card_slot_select_on_enter(void *user_data) {
     for (uint32_t i = 0; i < TAG_MAX_SLOT_NUM; i++) {
         if (tag_emulation_slot_is_enabled(i, TAG_SENSE_HF)) {
             sprintf(buff, "%s %02d", _T(APP_CHAMELEON_CARD_SLOT), i + 1);
-            mui_list_view_add_item_ext(app->p_list_view, ICON_DATA, buff, NULL, i);
+            mui_list_view_add_item_ext(app->p_list_view, ICON_DATA, buff, NULL, (void *)(uintptr_t)i);
         }
     }
     mui_list_view_add_item(app->p_list_view, ICON_BACK, _T(MAIN_RETURN), NULL_USER_DATA);

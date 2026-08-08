@@ -79,7 +79,7 @@ void player_view_free(player_view_t *p_view) {
 }
 mui_view_t *player_view_get_view(player_view_t *p_view) { return p_view->p_view; }
 
-void player_view_play(player_view_t *p_view, vfs_drive_t drive, char *path) {
+void player_view_play(player_view_t *p_view, vfs_drive_t drive, const char *path) {
 
     vfs_driver_t *p_driver = vfs_get_driver(drive);
     int32_t err = p_driver->open_file(path, &p_view->fd, VFS_MODE_READONLY);

@@ -3,11 +3,25 @@
 //
 #include "amiidb_api_slot.h"
 #include "amiibo_helper.h"
+#include "db_header.h"
 #include "settings.h"
 #include "vfs.h"
 #include "vfs_meta.h"
 #include <stdio.h>
 #include <string.h>
+
+static ntag_type_t amiidb_api_slot_get_tag_type(int32_t size, vfs_meta_t *meta, ntag_t *p_ntag) {
+    if (size == NTAG_I2C_2K_DATA_SIZE) {
+        uint32_t head = meta->has_amiibo_id ? meta->amiibo_head : to_little_endian_int32(&p_ntag->data[84]);
+        uint32_t tail = meta->has_amiibo_id ? meta->amiibo_tail : to_little_endian_int32(&p_ntag->data[88]);
+
+        if (!is_valid_amiibo_v3(head, tail)) {
+            return NTAG_215;
+        }
+    }
+
+    return _ntag_type(size);
+}
 
 int32_t amiidb_api_slot_read(uint8_t slot, ntag_t *p_ntag) {
     char path[VFS_MAX_PATH_LEN];
@@ -21,12 +35,13 @@ int32_t amiidb_api_slot_read(uint8_t slot, ntag_t *p_ntag) {
 
     memset(&meta, 0, sizeof(vfs_meta_t));
     vfs_meta_decode(fd.meta, sizeof(fd.meta), &meta);
+    memset(p_ntag, 0, sizeof(ntag_t));
     int32_t res = p_vfs_driver->read_file_data(path, p_ntag->data, sizeof(p_ntag->data));
-    if (res < 0) {
+    if (res < 0 || !is_valid_amiibo_ntag_by_size(res)) {
         return -1;
     }
 
-    p_ntag->type = _ntag_type(res);
+    p_ntag->type = amiidb_api_slot_get_tag_type(res, &meta, p_ntag);
 
     if (meta.has_notes) {
         strcpy(p_ntag->notes, meta.notes);
@@ -46,8 +61,9 @@ int32_t amiidb_api_slot_write(uint8_t slot, ntag_t *p_ntag) {
 
     sprintf(path, "/amiibo/data/%02d.bin", slot);
     vfs_driver_t *p_vfs_driver = vfs_get_driver(VFS_DRIVE_EXT);
-    int32_t res = p_vfs_driver->write_file_data(path, p_ntag->data, sizeof(p_ntag->data));
-    if (res < 0) {
+    size_t tag_size = _ntag_data_size(p_ntag);
+    int32_t res = p_vfs_driver->write_file_data(path, p_ntag->data, tag_size);
+    if (res != (int32_t)tag_size) {
         // TODO msg box
         return -1;
     }

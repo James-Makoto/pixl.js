@@ -11,6 +11,8 @@ CHAMELEON_ROOT :=$(COMP_DIR)/chameleon-ultra/firmware
 APP_VERSION ?= 1
 RELEASE ?= 1
 BOARD ?= OLED
+FW_TOP_SYMBOLS ?= 20
+FW_TOP_OBJECTS ?= 20
 
 $(OUTPUT_DIRECTORY)/pixljs.out: \
   LINKER_SCRIPT  := ../ld/application.ld
@@ -717,6 +719,7 @@ include $(TEMPLATE_PATH)/Makefile.common
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
 .PHONY: flash flash_softdevice erase
+.PHONY: size_report size_report_files
 
 # Flash the program
 flash: default
@@ -781,3 +784,17 @@ flash_bmp:
 		-ex 'compare-sections' \
 		-ex 'kill' \
 		$(OUTPUT_DIRECTORY)/pixljs.out
+
+size_report_files: $(OUTPUT_DIRECTORY)/pixljs.bin $(OUTPUT_DIRECTORY)/pixljs.out $(OUTPUT_DIRECTORY)/pixljs.map
+	@python3 ../scripts/size_report.py summarize \
+		--bin $(OUTPUT_DIRECTORY)/pixljs.bin \
+		--elf $(OUTPUT_DIRECTORY)/pixljs.out \
+		--map $(OUTPUT_DIRECTORY)/pixljs.map \
+		--top-symbols $(FW_TOP_SYMBOLS) \
+		--top-objects $(FW_TOP_OBJECTS) \
+		--board $(BOARD) \
+		--release $(RELEASE) \
+		--out-prefix $(OUTPUT_DIRECTORY)/size_report_$(BOARD)
+
+size_report: size_report_files
+	@cat $(OUTPUT_DIRECTORY)/size_report_$(BOARD).txt

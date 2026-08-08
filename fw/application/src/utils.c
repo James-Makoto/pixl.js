@@ -22,8 +22,10 @@ ret_code_t utils_rand_bytes(uint8_t rand[], uint8_t bytes) {
 }
 
 void utils_get_device_id(uint8_t *p_device_id) {
-    memcpy(p_device_id, &(NRF_FICR->DEVICEID[0]), 4);
-    memcpy(p_device_id + 4, &(NRF_FICR->DEVICEID[1]), 4);
+    uint32_t device_id0 = NRF_FICR->DEVICEID[0];
+    uint32_t device_id1 = NRF_FICR->DEVICEID[1];
+    memcpy(p_device_id, &device_id0, sizeof(device_id0));
+    memcpy(p_device_id + sizeof(device_id0), &device_id1, sizeof(device_id1));
 }
 
 void int32_to_bytes_le(uint32_t val, uint8_t *data) {
