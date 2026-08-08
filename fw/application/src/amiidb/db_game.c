@@ -12,7 +12,7 @@ const db_game_t game_list[] = {
 {9, 0, "Captain Toad: Treasure Tracker", "蘑菇队长:宝藏追踪者", 1, 4}, 
 {10, 0, "Bayonetta 2", "猎天使魔女2", 1, 13}, 
 {11, 0, "Animal Crossing: New Horizons", "集合啦！动物森友会", 99, 525}, 
-{12, 0, "Splatoon 3", "斯普拉遁3", 40, 27}, 
+{12, 0, "Splatoon 3", "斯普拉遁3", 40, 30}, 
 {13, 0, "Fire Emblem Warriors: Three Hopes", "火焰纹章：风花雪月无双", 15, 13}, 
 {14, 0, "Fire Emblem Warriors", "火焰纹章：无双", 15, 13}, 
 {15, 0, "Fire Emblem Three Houses", "火焰纹章：风花雪月", 30, 13}, 
@@ -75,9 +75,10 @@ const db_game_t game_list[] = {
 {72, 0, "Street Fighter 6", "街头霸王6", 5, 63}, 
 {73, 0, "Donkey Kong Bananza", "咚奇刚 蕉力全开", 5, 2}, 
 {74, 0, "Metroid Prime 4: Beyond", "密特罗德 究极4 超越未知", 10, 3}, 
-{75, 0, "Kirby Air Riders", "卡比的驭天飞行者", 1, 3}, 
+{75, 0, "Kirby Air Riders", "卡比的驭天飞行者", 1, 4}, 
 {76, 0, "Super Mario Bros. Wonder", "超级马力欧兄弟 惊奇", 5, 5}, 
 {77, 0, "PRAGMATA", "识质存在", 1, 1}, 
+{78, 0, "Resident Evil", "生化危机系列", 1, 2}, 
 {255, 0, "Others", "未分类", 0, 3}, 
 {0, 0, 0, 0, 0}
 };
