@@ -30,6 +30,7 @@
 1,010a000004a40902,Paraglider Skin Material,滑翔伞皮肤布料,Tessuto della Paravela
 1,010b000004a50902,Paraglider Skin Material,滑翔伞皮肤布料,Tessuto della Paravela
 1,010c000004a60902,Paraglider Skin Material,滑翔伞皮肤布料,Tessuto della Paravela
+1,010d000004a70902,Paraglider Skin Material,滑翔伞皮肤布料,Tessuto della Paravela
 2,0101030004140902,,随时随地传送,
 3,01020100001b0002,,暂无简介,
 3,01030000024f0902,,暂无简介,
@@ -344,6 +345,9 @@
 35,35060000040d0f02,,暂无简介,
 35,35050000040c0f02,,暂无简介,
 35,35070000040e0f02,,暂无简介,
+35,350c000004fa0f02,,暂无简介,
+35,350d000004fb0f02,,暂无简介,
+35,350e000004fc0f02,,暂无简介,
 36,1906000000240002,,暂无简介,
 36,1d01000003750d02,,暂无简介,
 36,1b92000000250002,,暂无简介,
@@ -1320,6 +1324,7 @@
 75,1f03010004c91e03,,,
 75,1f01000004c61e03,,,
 75,1f02000004c71e03,,,
+75,1f04000004ca1e03,,,
 76,0000040004c10102,Change decoration in Bellabel Park hub,改变铃铃公园装饰,
 76,0025010004c30102,Change decoration in Bellabel Park hub,改变铃铃公园装饰,
 76,000a010004c20102,Change decoration in Bellabel Park hub,改变铃铃公园装饰,
