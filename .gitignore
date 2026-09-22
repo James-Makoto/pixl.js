@@ -54,4 +54,7 @@ fw/temp
 .DS_Store
 *.un~
 
+fw/bootloader/*.local.pem
+fw/bootloader/*private*.pem
+fw/bootloader/*release*.pem
 **/.vscode/.cortex-debug*.json
