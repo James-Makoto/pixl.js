@@ -95,7 +95,7 @@ const db_amiibo_t amiibo_list[] = {
 {0x010a0000, 0x04a40902, "Sidon", "希多"}, 
 {0x010b0000, 0x04a50902, "Tulin", "丘栗"}, 
 {0x010c0000, 0x04a60902, "Yunobo", "阿沅"}, 
-{0x010d0000, 0x04a70902, "Mineru's Construct", "米捏鲁魔像"}, 
+{0x010d0000, 0x04a70902, "Mineru's Construct", "米奈鲁魔像"}, 
 {0x01400000, 0x03550902, "Guardian", "守护者"}, 
 {0x01410000, 0x035c0902, "Bokoblin", "波克布林"}, 
 {0x01800000, 0x00080002, "Villager", "村民"}, 
